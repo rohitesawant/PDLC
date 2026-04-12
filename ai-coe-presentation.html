@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AICOE — Operating Model</title>
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #050d1a;
+      --bg-surface:  #0a1628;
+      --bg-elevated: #0f1e35;
+      --accent:      #00D4FF;
+      --accent-blue: #0066FF;
+      --text-primary:   #E2E8F0;
+      --text-secondary: #94A3B8;
+      --tab-h: 64px;
+      --transition: 420ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      overflow: hidden;
+    }
+
+    /* ─── Slide Wrapper ────────────────────────────────────── */
+    #deck {
+      position: fixed;
+      inset: 0 0 var(--tab-h) 0;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(18px);
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      will-change: opacity, transform;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    /* ─── Slide 1 — Title / Header ─────────────────────────── */
+    #slide-1 {
+      flex-direction: column;
+      text-align: center;
+      padding: 48px 40px;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 42%,
+          rgba(0, 102, 255, 0.13) 0%,
+          transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 42%,
+          rgba(0, 212, 255, 0.07) 0%,
+          transparent 60%),
+        var(--bg);
+    }
+
+    /* Animated glow ring */
+    .glow-ring {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, 0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -54%);
+      animation: ring-pulse 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .glow-ring::after {
+      content: '';
+      position: absolute;
+      inset: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 102, 255, 0.07);
+      animation: ring-pulse 6s ease-in-out infinite reverse;
+    }
+
+    @keyframes ring-pulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -54%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -54%) scale(1.04); }
+    }
+
+    /* Badge */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      background: rgba(0, 212, 255, 0.08);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 36px;
+      animation: badge-in 0.8s 0.2s both;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: dot-blink 2.4s ease-in-out infinite;
+    }
+
+    @keyframes dot-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    @keyframes badge-in {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Main title */
+    .slide-title {
+      font-size: clamp(64px, 10vw, 108px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1;
+      background: linear-gradient(135deg, #ffffff 0%, #c7e8ff 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 28px;
+      animation: title-in 0.9s 0.4s both;
+    }
+
+    @keyframes title-in {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Divider rule */
+    .slide-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 28px;
+      animation: rule-in 0.7s 0.7s both;
+    }
+
+    @keyframes rule-in {
+      from { width: 0; opacity: 0; }
+      to   { width: 80px; opacity: 1; }
+    }
+
+    /* Subtitle */
+    .slide-subtitle {
+      font-size: clamp(15px, 2.2vw, 22px);
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.65;
+      animation: sub-in 0.8s 0.85s both;
+    }
+
+    .slide-subtitle strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    @keyframes sub-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pill tags row */
+    .slide-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+      animation: tags-in 0.8s 1.1s both;
+    }
+
+    @keyframes tags-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .tag {
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--text-secondary);
+      letter-spacing: 0.3px;
+    }
+
+    /* Date stamp — bottom right of slide */
+    .slide-datestamp {
+      position: absolute;
+      bottom: 24px;
+      right: 36px;
+      font-size: 11px;
+      color: rgba(148, 163, 184, 0.4);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── Tab Bar ───────────────────────────────────────────── */
+    #tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--tab-h);
+      background: var(--bg-surface);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: stretch;
+      padding: 0 16px;
+      gap: 4px;
+      z-index: 50;
+      /* subtle inner shadow at top */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 20px;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+      transition: background 0.2s, color 0.2s;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      user-select: none;
+      border: 1px solid transparent;
+      border-bottom: none;
+      margin-top: 8px;
+    }
+
+    .tab:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+    }
+
+    .tab.active {
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* active indicator line at top of tab */
+    .tab.active::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 12px;
+      right: 12px;
+      height: 2px;
+      border-radius: 0 0 2px 2px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent));
+    }
+
+    .tab-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tab.active .tab-num { opacity: 1; color: var(--accent); }
+
+    /* right side of tab bar — slide counter */
+    .tab-bar-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(148, 163, 184, 0.35);
+      padding-right: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tab-bar-right .curr { color: var(--text-primary); font-weight: 600; }
+
+    /* ─── Grid decoration (subtle) ────────────────────────── */
+    .bg-grid {
+      position: fixed;
+      inset: 0 0 var(--tab-h) 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Subtle background grid -->
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE DECK
+═══════════════════════════════════════════════ -->
+<div id="deck">
+
+  <!-- ── Slide 1 — Title / Header ───────────────── -->
+  <section class="slide active" id="slide-1" data-label="Overview" aria-label="Slide 1: Overview">
+
+    <div class="glow-ring" aria-hidden="true"></div>
+
+    <div class="slide-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      AI Centre of Excellence
+    </div>
+
+    <h1 class="slide-title">AICOE</h1>
+
+    <div class="slide-rule" aria-hidden="true"></div>
+
+    <p class="slide-subtitle">
+      <strong>Operating Model</strong> for providing
+      Data Driven Support across the Organisation
+    </p>
+
+    <div class="slide-tags" aria-label="Key themes">
+      <span class="tag">DataOps</span>
+      <span class="tag">MLOps</span>
+      <span class="tag">AI Ops</span>
+      <span class="tag">Generative AI</span>
+      <span class="tag">Change Management</span>
+      <span class="tag">Transformation</span>
+      <span class="tag">PDLC Methodology</span>
+    </div>
+
+    <div class="slide-datestamp" aria-hidden="true">2026</div>
+
+  </section>
+  <!-- ── /Slide 1 ────────────────────────────────── -->
+
+</div>
+<!-- /deck -->
+
+
+<!-- ═══════════════════════════════════════════════
+     TAB BAR
+═══════════════════════════════════════════════ -->
+<nav id="tab-bar" role="tablist" aria-label="Presentation slides">
+
+  <button class="tab active"
+          role="tab"
+          aria-selected="true"
+          aria-controls="slide-1"
+          data-slide="1"
+          onclick="switchSlide(1)">
+    <span class="tab-num">01</span>
+    Overview
+  </button>
+
+  <!-- Future tabs inserted here -->
+
+  <div class="tab-bar-right" aria-live="polite" aria-label="Slide position">
+    <span class="curr" id="curr-indicator">1</span>
+    <span>/</span>
+    <span id="total-indicator">1</span>
+  </div>
+
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  const TOTAL_SLIDES = document.querySelectorAll('.slide').length;
+  let current = 1;
+
+  document.getElementById('total-indicator').textContent = TOTAL_SLIDES;
+
+  function switchSlide(n) {
+    if (n < 1 || n > TOTAL_SLIDES || n === current) return;
+
+    // Deactivate current
+    const prevSlide = document.getElementById('slide-' + current);
+    const prevTab   = document.querySelector('.tab[data-slide="' + current + '"]');
+    if (prevSlide) prevSlide.classList.remove('active');
+    if (prevTab)   { prevTab.classList.remove('active'); prevTab.setAttribute('aria-selected', 'false'); }
+
+    // Activate new
+    current = n;
+    const nextSlide = document.getElementById('slide-' + current);
+    const nextTab   = document.querySelector('.tab[data-slide="' + current + '"]');
+    if (nextSlide) nextSlide.classList.add('active');
+    if (nextTab)   { nextTab.classList.add('active'); nextTab.setAttribute('aria-selected', 'true'); }
+
+    document.getElementById('curr-indicator').textContent = current;
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  switchSlide(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    switchSlide(current - 1);
+  });
+</script>
+
+</body>
+</html>

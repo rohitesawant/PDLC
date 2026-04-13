@@ -281,6 +281,263 @@
   .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
   /* ============================================
+     Slide 2 — Types of Solution
+     ============================================ */
+  #slide-2 {
+    justify-content: flex-start;
+    padding-top: 32px;
+  }
+  #slide-2 .slide-head { margin-bottom: 20px; }
+  #slide-2 .slide-title { font-size: 40px; }
+  #slide-2 .slide-subtitle { font-size: 14px; margin-top: 8px; }
+
+  .sol-stage {
+    width: min(1280px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Panel base */
+  .sol-panel {
+    --panel-color: var(--accent);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--panel-color);
+    background: linear-gradient(160deg, var(--bg-elevated) 0%, var(--bg-surface) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px 22px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sol-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100px;
+    background: radial-gradient(ellipse at top center, var(--panel-color), transparent 70%);
+    opacity: 0.09;
+    pointer-events: none;
+  }
+  .sol-panel.bolt { --panel-color: #a78bfa; } /* purple-blue blend */
+  .sol-panel.built { --panel-color: #34d399; } /* emerald */
+
+  .sol-panel-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .sol-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .sol-panel.bolt .sol-badge { background: rgba(167, 139, 250, 0.12); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.3); }
+  .sol-panel.built .sol-badge { background: rgba(52, 211, 153, 0.12); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+  .sol-panel-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+  }
+  .sol-panel-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Stream badges */
+  .stream-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stream-chip {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+  .sc-aie { color: #a855f7; border-color: rgba(168,85,247,0.35); background: rgba(168,85,247,0.08); }
+  .sc-de  { color: #0ea5e9; border-color: rgba(14,165,233,0.35); background: rgba(14,165,233,0.08); }
+  .sc-dna { color: #10b981; border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.08); }
+  .sc-mod { color: #f59e0b; border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.08); }
+
+  .sol-divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Solution cards inside panels */
+  .sol-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .sol-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .sol-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sol-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .sol-panel.bolt .sol-icon { background: rgba(167,139,250,0.15); }
+  .sol-panel.built .sol-icon { background: rgba(52,211,153,0.15); }
+  .sol-card-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .sol-card-code {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .sol-card-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .sol-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .sol-feature {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  .sol-panel.bolt .sol-feature { background: rgba(167,139,250,0.1); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.2); }
+  .sol-panel.built .sol-feature { background: rgba(52,211,153,0.1); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.2); }
+
+  /* PDLC Shift Left band */
+  .shift-band {
+    background: rgba(52, 211, 153, 0.06);
+    border: 1px dashed rgba(52, 211, 153, 0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #6ee7b7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+  }
+  .shift-band .tag {
+    background: rgba(52,211,153,0.15);
+    border: 1px solid rgba(52,211,153,0.3);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    color: #34d399;
+  }
+
+  /* Persona row */
+  .persona-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .persona-card {
+    border-radius: 10px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card.human {
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.25);
+  }
+  .persona-card.digital {
+    background: rgba(52,211,153,0.08);
+    border: 1px solid rgba(52,211,153,0.3);
+  }
+  .persona-avatar {
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .persona-type {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .persona-card.human .persona-type { color: #818cf8; }
+  .persona-card.digital .persona-type { color: #34d399; }
+  .persona-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .persona-role {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .persona-card.digital .persona-name {
+    background: linear-gradient(135deg, #34d399, #00D4FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .persona-evolve {
+    position: absolute;
+    top: 6px; right: 8px;
+    font-size: 9px;
+    color: #f59e0b;
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 4px;
+    padding: 1px 6px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ============================================
      Slide 1 — In Scope: Towers around AICOE
      ============================================ */
   #slide-1 {
@@ -626,11 +883,131 @@
     <div class="slide-head">
       <div class="pre-title">02 — Solution Taxonomy</div>
       <h2 class="slide-title">Types of Solution</h2>
-      <p class="slide-subtitle">The categories of data &amp; AI solutions the COE will support — from bolt-on tools to fully built-in platforms.</p>
+      <p class="slide-subtitle">Two distinct delivery patterns — layered tooling versus natively engineered intelligence — each serving different streams of the AICOE.</p>
     </div>
-    <div class="content-card">
-      <span class="hint">Content Pending</span>
-      Solution taxonomy will be added here — Bolt On vs Built In classification, examples, and decision criteria.
+
+    <div class="sol-stage">
+
+      <!-- ==============================
+           LEFT: BOLT ON SOLUTIONS
+           ============================== -->
+      <div class="sol-panel bolt">
+        <div class="sol-panel-header">
+          <div class="sol-badge">⚡ Bolt On Solutions</div>
+          <div class="sol-panel-title">Off-the-Shelf AI Acceleration</div>
+          <div class="sol-panel-sub">Vendor-powered tools layered onto existing delivery pipelines to inject AI productivity rapidly, with low structural change.</div>
+        </div>
+
+        <div class="stream-row">
+          <span class="stream-chip sc-aie">A · AI Engineering</span>
+          <span class="stream-chip sc-de">B · Data Engineering</span>
+        </div>
+
+        <div class="sol-divider"></div>
+
+        <!-- SMART DATA OPS -->
+        <div class="sol-card">
+          <div class="sol-card-top">
+            <div class="sol-icon">🧠</div>
+            <div>
+              <div class="sol-card-name">SMART DATA OPS</div>
+              <div class="sol-card-code">AI-Driven Ops Management</div>
+            </div>
+          </div>
+          <div class="sol-card-desc">
+            Automated management of <strong>L1 / L2 support tickets</strong> using AI — reducing manual triage, accelerating resolution, and building institutional knowledge over time.
+          </div>
+          <div class="sol-features">
+            <span class="sol-feature">🔄 Self Curation</span>
+            <span class="sol-feature">🔍 Knowledge Query</span>
+            <span class="sol-feature">🕸️ Ontology-based Relationship Building</span>
+          </div>
+        </div>
+
+        <!-- ETHAN -->
+        <div class="sol-card">
+          <div class="sol-card-top">
+            <div class="sol-icon">🤖</div>
+            <div>
+              <div class="sol-card-name">SDLC.AI — Agent ETHAN</div>
+              <div class="sol-card-code">Accelerator · Quick Fix Agent</div>
+            </div>
+          </div>
+          <div class="sol-card-desc">
+            An AI agent embedded in the software delivery lifecycle to drive <strong>rapid productivity gains</strong> — targeting quick fixes, code remediation, and delivery acceleration without large process overhaul.
+          </div>
+          <div class="sol-features">
+            <span class="sol-feature">⚡ Quick Fix Automation</span>
+            <span class="sol-feature">📈 SDLC Productivity</span>
+            <span class="sol-feature">🔧 Code Remediation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==============================
+           RIGHT: BUILT IN SOLUTIONS
+           ============================== -->
+      <div class="sol-panel built">
+        <div class="sol-panel-header">
+          <div class="sol-badge">🏗️ Built In Solutions</div>
+          <div class="sol-panel-title">AI-Native Product Engineering</div>
+          <div class="sol-panel-sub">Deeply engineered into the product fabric using the PDLC Shift Left methodology — transforming how teams work across human and digital personas.</div>
+        </div>
+
+        <div class="stream-row">
+          <span class="stream-chip sc-dna">C · DNA</span>
+          <span class="stream-chip sc-mod">D · Modernisation</span>
+        </div>
+
+        <div class="sol-divider"></div>
+
+        <!-- PDLC Shift Left band -->
+        <div class="shift-band">
+          <span class="tag">PDLC</span>
+          Shift Left Methodology — requirements, controls, validations and evaluations are defined before build, not after.
+        </div>
+
+        <!-- Three personas -->
+        <div class="sol-card" style="gap:12px;">
+          <div class="sol-card-top">
+            <div class="sol-icon">👥</div>
+            <div>
+              <div class="sol-card-name">Three-Persona Operating Model</div>
+              <div class="sol-card-code">Human × Digital Collaboration</div>
+            </div>
+          </div>
+          <div class="sol-card-desc">Two revised human roles work with a new digital persona — progressively replacing the traditional Developer with an AI-powered delivery engine.</div>
+
+          <div class="persona-row">
+            <!-- Persona 1: Business -->
+            <div class="persona-card human">
+              <div class="persona-avatar">🙋</div>
+              <div class="persona-type">Revised Human</div>
+              <div class="persona-name">AI Enabled Business Persona</div>
+              <div class="persona-role">Defines core requirements, controls &amp; validations. Sets the intent for the AI Engine.</div>
+            </div>
+
+            <!-- Persona 2: Engineer -->
+            <div class="persona-card human">
+              <div class="persona-avatar">🛡️</div>
+              <div class="persona-type">Revised Human</div>
+              <div class="persona-name">AI Engineer Persona</div>
+              <div class="persona-role">Oversees delivery, monitors AI outputs and validates outcomes against controls.</div>
+            </div>
+
+            <!-- Persona 3: AI Engine -->
+            <div class="persona-card digital">
+              <div class="persona-evolve">Evolving</div>
+              <div class="persona-avatar">⚙️</div>
+              <div class="persona-type">Digital Persona</div>
+              <div class="persona-name">AI Engine</div>
+              <div class="persona-role">Replaces the Developer. Leverages LLMs to build, test and iterate autonomously.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 

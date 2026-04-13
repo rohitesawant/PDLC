@@ -279,6 +279,225 @@
   .slide::-webkit-scrollbar { width: 8px; }
   .slide::-webkit-scrollbar-track { background: transparent; }
   .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  /* ============================================
+     Slide 1 — In Scope: Towers around AICOE
+     ============================================ */
+  #slide-1 {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+  #slide-1 .slide-head { margin-bottom: 20px; }
+  #slide-1 .slide-title { font-size: 42px; }
+  #slide-1 .slide-subtitle { font-size: 15px; margin-top: 8px; }
+
+  .scope-stage {
+    position: relative;
+    width: min(1280px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  /* Central AICOE hub */
+  .aicoe-hub {
+    position: relative;
+    width: 260px;
+    height: 92px;
+    border-radius: 14px;
+    background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.18), rgba(0, 102, 255, 0.06));
+    border: 1.5px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.08);
+    z-index: 3;
+  }
+  .aicoe-hub::before,
+  .aicoe-hub::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    pointer-events: none;
+  }
+  .aicoe-hub::after {
+    inset: -14px;
+    border-radius: 22px;
+    border-color: rgba(0, 212, 255, 0.08);
+    animation: ring-pulse 3s ease-in-out infinite;
+  }
+  @keyframes ring-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%      { transform: scale(1.04); opacity: 0.9; }
+  }
+  .aicoe-hub .hub-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .aicoe-hub .hub-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .aicoe-hub .hub-sub {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Tower grid */
+  .tower-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    position: relative;
+  }
+
+  .tower {
+    --tower-color: var(--accent);
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-elevated), var(--bg-surface));
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--tower-color);
+    border-radius: 12px;
+    padding: 20px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    overflow: hidden;
+  }
+  .tower::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: radial-gradient(ellipse at top, var(--tower-color) 0%, transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  .tower:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--tower-color);
+  }
+
+  .tower-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+  .tower-letter {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--tower-color);
+    color: #0a0a0a;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  }
+  .tower-titles {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .tower-code {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--tower-color);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .tower-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-top: 2px;
+  }
+
+  .tower-tagline {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .tower-fn-head {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tower-fn-head .count {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    color: var(--tower-color);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+  }
+
+  .tower-fns {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .tower-fns li {
+    font-size: 12px;
+    color: var(--text-primary);
+    line-height: 1.35;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 2px solid var(--tower-color);
+    border-radius: 4px;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .tower-fns li:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(2px);
+  }
+
+  /* Per-tower accent colors */
+  .tower.t-aie { --tower-color: #a855f7; }
+  .tower.t-de  { --tower-color: #0ea5e9; }
+  .tower.t-dna { --tower-color: #10b981; }
+  .tower.t-mod { --tower-color: #f59e0b; }
+
+  /* Connector lines SVG */
+  .scope-connectors {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
 </style>
 </head>
 <body>
@@ -286,21 +505,117 @@
 <div class="slides">
 
   <!-- ============================================
-       SLIDE 1 — In Scope
+       SLIDE 1 — In Scope: Towers around AICOE
        ============================================ -->
-  <section class="slide title-slide active" id="slide-1" role="tabpanel">
-    <div class="pre-title">AI Centre of Excellence</div>
-    <h1 class="main-title">In Scope</h1>
-    <p class="main-subtitle">
-      Defining the boundary of what the AICOE will deliver, support, and govern
-      across the organisation's data and AI estate.
-    </p>
-    <div class="rule"></div>
-    <div class="tagline">
-      <span>Data</span>
-      <span>AI</span>
-      <span>Delivery</span>
-      <span>Governance</span>
+  <section class="slide active" id="slide-1" role="tabpanel">
+    <div class="slide-head">
+      <div class="pre-title">01 — In Scope</div>
+      <h2 class="slide-title">Scope of Services across the Towers</h2>
+      <p class="slide-subtitle">Four delivery streams orbit the AICOE — each a tower of specialised functions unified under a single Centre of Excellence.</p>
+    </div>
+
+    <div class="scope-stage">
+
+      <!-- Central AICOE hub -->
+      <div class="aicoe-hub">
+        <span class="hub-label">Centre of Excellence</span>
+        <span class="hub-title">AICOE</span>
+        <span class="hub-sub">Data · AI · Delivery · Governance</span>
+      </div>
+
+      <!-- Four towers grid -->
+      <div class="tower-grid">
+
+        <!-- A. AI Engineering -->
+        <div class="tower t-aie">
+          <div class="tower-header">
+            <div class="tower-letter">A</div>
+            <div class="tower-titles">
+              <span class="tower-code">Stream A · AIE</span>
+              <span class="tower-name">AI Engineering</span>
+            </div>
+          </div>
+          <div class="tower-tagline">Design, build and operate AI &amp; Gen AI systems end-to-end.</div>
+          <div class="tower-fn-head">
+            <span>Core Functions</span><span class="count">5</span>
+          </div>
+          <ul class="tower-fns">
+            <li>AI Strategy &amp; Planning</li>
+            <li>AI &amp; ML Engineering</li>
+            <li>Gen AI / Agentic Engineering</li>
+            <li>AI Factory &amp; Infrastructure</li>
+            <li>Responsible AI &amp; Governance</li>
+          </ul>
+        </div>
+
+        <!-- B. Data Engineering -->
+        <div class="tower t-de">
+          <div class="tower-header">
+            <div class="tower-letter">B</div>
+            <div class="tower-titles">
+              <span class="tower-code">Stream B · DE</span>
+              <span class="tower-name">Data Engineering</span>
+            </div>
+          </div>
+          <div class="tower-tagline">Platforms, pipelines and products that deliver trusted data.</div>
+          <div class="tower-fn-head">
+            <span>Core Functions</span><span class="count">6</span>
+          </div>
+          <ul class="tower-fns">
+            <li>Data Strategy &amp; Architecture</li>
+            <li>Data Engineering</li>
+            <li>Data Management &amp; Governance</li>
+            <li>Data Visualisation</li>
+            <li>Data Science &amp; Analytics</li>
+            <li>DataOps &amp; FinOps</li>
+          </ul>
+        </div>
+
+        <!-- C. DNA (Data and Analytics) -->
+        <div class="tower t-dna">
+          <div class="tower-header">
+            <div class="tower-letter">C</div>
+            <div class="tower-titles">
+              <span class="tower-code">Stream C · DNA</span>
+              <span class="tower-name">Data &amp; Analytics</span>
+            </div>
+          </div>
+          <div class="tower-tagline">Enterprise data platform, governance and analytics at scale.</div>
+          <div class="tower-fn-head">
+            <span>Core Functions</span><span class="count">5</span>
+          </div>
+          <ul class="tower-fns">
+            <li>Cloud Native Data Platforms</li>
+            <li>Data Management &amp; Governance</li>
+            <li>Compliance</li>
+            <li>Data Risk Management</li>
+            <li>Advanced Analytics, AI &amp; BI</li>
+          </ul>
+        </div>
+
+        <!-- D. MOD (Modernisation) -->
+        <div class="tower t-mod">
+          <div class="tower-header">
+            <div class="tower-letter">D</div>
+            <div class="tower-titles">
+              <span class="tower-code">Stream D · MOD</span>
+              <span class="tower-name">Modernisation</span>
+            </div>
+          </div>
+          <div class="tower-tagline">FTE-provisioned transformation capacity with deep DE skills.</div>
+          <div class="tower-fn-head">
+            <span>Capability</span><span class="count">FTE</span>
+          </div>
+          <ul class="tower-fns">
+            <li>Transformation Skills Provisioning</li>
+            <li>FTEs skilled in Data Engineering</li>
+            <li>Legacy → Cloud Modernisation</li>
+            <li>Migration &amp; Re-platforming</li>
+            <li>Uplift &amp; Enablement</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 

@@ -519,6 +519,278 @@
       font-variant-numeric: tabular-nums;
     }
     .tab-bar-right .curr { color: var(--text-primary); font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 3 — Operating Model (PDLC × 4 Pillars grid)
+    ═══════════════════════════════════════════════════════ */
+    #slide-3 {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 22px 32px 16px;
+      overflow-y: auto;
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 30%, rgba(0,102,255,0.07) 0%, transparent 70%),
+        var(--bg);
+    }
+
+    /* — Header — */
+    .s3-header {
+      text-align: center;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      width: 100%;
+    }
+    .s3-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .s3-eyebrow-line {
+      display: inline-block;
+      width: 24px; height: 1px;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+    .s3-title {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 3px;
+    }
+    .s3-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* — PDLC Shift Banner — */
+    .s3-shift {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .shift-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .shift-from {
+      padding: 3px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      text-decoration: line-through;
+      text-decoration-color: rgba(255,255,255,0.3);
+    }
+    .shift-arrow {
+      font-size: 16px;
+      color: var(--accent);
+      letter-spacing: -2px;
+    }
+    .shift-to {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .shift-pill {
+      padding: 3px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid;
+    }
+    .shift-pill.sp { background: rgba(139,92,246,0.15); color: #a78bfa; border-color: rgba(139,92,246,0.3); }
+    .shift-pill.sc { background: rgba(6,182,212,0.12);  color: #22d3ee; border-color: rgba(6,182,212,0.3); }
+    .shift-pill.sk { background: rgba(168,85,247,0.12); color: #c084fc; border-color: rgba(168,85,247,0.3); }
+    .shift-pill.se { background: rgba(16,185,129,0.12); color: #34d399; border-color: rgba(16,185,129,0.3); }
+
+    /* — Grid — */
+    .s3-grid-wrap {
+      width: 100%;
+      max-width: 1020px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Header row (pillar names) */
+    .s3-grid-head {
+      display: grid;
+      grid-template-columns: 108px repeat(4, 1fr);
+      gap: 3px;
+    }
+    .s3-head-spacer { /* empty top-left cell */ }
+    .s3-col-head {
+      padding: 8px 12px;
+      border-radius: 8px 8px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-align: center;
+      border: 1px solid;
+      border-bottom: none;
+    }
+    .s3-col-head.aie { background: rgba(168,85,247,0.12); color: #a855f7; border-color: rgba(168,85,247,0.25); }
+    .s3-col-head.de  { background: rgba(14,165,233,0.12);  color: #0ea5e9; border-color: rgba(14,165,233,0.25); }
+    .s3-col-head.dna { background: rgba(16,185,129,0.12);  color: #10b981; border-color: rgba(16,185,129,0.25); }
+    .s3-col-head.mod { background: rgba(245,158,11,0.12);  color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+
+    /* Content rows */
+    .s3-row {
+      display: grid;
+      grid-template-columns: 108px repeat(4, 1fr);
+      gap: 3px;
+      cursor: pointer;
+    }
+    .s3-row:hover .s3-cell { background: rgba(255,255,255,0.04); }
+    .s3-row.active .s3-cell { background: rgba(255,255,255,0.05); }
+
+    .s3-step-lbl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      text-align: center;
+      gap: 3px;
+      transition: border-color 0.25s;
+    }
+    .s3-row.active .s3-step-lbl { border-color: var(--row-color); }
+    .step-num-badge {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--row-color-bg);
+      color: var(--row-color);
+      border: 1px solid var(--row-color-bdr);
+    }
+    .step-lbl-name {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+
+    .s3-cell {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+      transition: background 0.2s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .s3-row.active .s3-cell { border-color: rgba(255,255,255,0.09); }
+
+    .cell-items {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cell-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+    .cell-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .s3-cell.aie-c .cell-dot { background: #a855f7; }
+    .s3-cell.de-c  .cell-dot { background: #0ea5e9; }
+    .s3-cell.dna-c .cell-dot { background: #10b981; }
+    .s3-cell.mod-c .cell-dot { background: #f59e0b; }
+
+    /* Active row left accent */
+    .s3-row.active .s3-step-lbl .step-lbl-name { color: var(--row-color); }
+
+    /* — Step detail card — */
+    .s3-detail {
+      width: 100%;
+      max-width: 1020px;
+      margin-top: 6px;
+      flex-shrink: 0;
+      min-height: 52px;
+    }
+    .s3-hint {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(148,163,184,0.3);
+      padding: 14px 0 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .s3-hint::before, .s3-hint::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.04);
+    }
+    .s3-detail-card {
+      display: none;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--bg-surface);
+      padding: 16px 20px;
+      animation: card-in 0.3s ease both;
+    }
+    .s3-detail-card.visible { display: flex; gap: 16px; align-items: flex-start; }
+    .s3-detail-badge {
+      flex-shrink: 0;
+      padding: 5px 14px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .s3-detail-body h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .s3-detail-body p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
   </style>
 </head>
 <body>
@@ -670,6 +942,251 @@
 
   </section><!-- /slide-2 -->
 
+  <!-- ── Slide 3 — Operating Model ────────────── -->
+  <section class="slide" id="slide-3" aria-label="Slide 3: Operating Model">
+
+    <!-- Header -->
+    <div class="s3-header">
+      <div class="s3-eyebrow">
+        <span class="s3-eyebrow-line"></span>
+        Operating Model
+        <span class="s3-eyebrow-line"></span>
+      </div>
+      <h2 class="s3-title">AICOE Operating Model — PDLC Overlay</h2>
+      <p class="s3-sub">One common methodology applied across all four pillars &mdash; click a row to explore each PDLC step</p>
+    </div>
+
+    <!-- PDLC Shift Banner -->
+    <div class="s3-shift">
+      <span class="shift-label">PDLC Shift</span>
+      <span class="shift-from">Build</span>
+      <span class="shift-arrow">&#8594;&#8594;</span>
+      <div class="shift-to">
+        <span class="shift-pill sp">Specifications</span>
+        <span class="shift-pill sc">Controls</span>
+        <span class="shift-pill sk">Contracts</span>
+        <span class="shift-pill se">Evaluations</span>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="s3-grid-wrap">
+
+      <!-- Column header row -->
+      <div class="s3-grid-head">
+        <div class="s3-head-spacer"></div>
+        <div class="s3-col-head aie">AIE &mdash; AI Engineering</div>
+        <div class="s3-col-head de">DE &mdash; Data Engineering</div>
+        <div class="s3-col-head dna">DNA &mdash; Data &amp; Analytics</div>
+        <div class="s3-col-head mod">MOD &mdash; Transformation</div>
+      </div>
+
+      <!-- Step 1 — Toolset Selection -->
+      <div class="s3-row" id="s3r-1" data-step="1"
+           style="--row-color:#94a3b8;--row-color-bg:rgba(148,163,184,0.12);--row-color-bdr:rgba(148,163,184,0.3)"
+           onclick="selectStep(1)">
+        <div class="s3-step-lbl">
+          <div class="step-num-badge">1</div>
+          <span class="step-lbl-name">Toolset Selection</span>
+        </div>
+        <div class="s3-cell aie-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>AI/ML Frameworks &amp; LLM APIs</div>
+            <div class="cell-item"><span class="cell-dot"></span>Evaluation Libraries</div>
+            <div class="cell-item"><span class="cell-dot"></span>MLflow &amp; Observability</div>
+          </div>
+        </div>
+        <div class="s3-cell de-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Data Platform &amp; Lakehouse</div>
+            <div class="cell-item"><span class="cell-dot"></span>Pipeline Orchestrators</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Quality Tools</div>
+          </div>
+        </div>
+        <div class="s3-cell dna-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>BI &amp; Analytics Platform</div>
+            <div class="cell-item"><span class="cell-dot"></span>Visualisation Tools</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Product Framework</div>
+          </div>
+        </div>
+        <div class="s3-cell mod-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>PDLC Toolchain</div>
+            <div class="cell-item"><span class="cell-dot"></span>Delivery Management Platform</div>
+            <div class="cell-item"><span class="cell-dot"></span>CI/CD Orchestration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 — Business Requirements -->
+      <div class="s3-row" id="s3r-2" data-step="2"
+           style="--row-color:#60a5fa;--row-color-bg:rgba(96,165,250,0.12);--row-color-bdr:rgba(96,165,250,0.3)"
+           onclick="selectStep(2)">
+        <div class="s3-step-lbl">
+          <div class="step-num-badge">2</div>
+          <span class="step-lbl-name">Business Requirements</span>
+        </div>
+        <div class="s3-cell aie-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Model Specifications</div>
+            <div class="cell-item"><span class="cell-dot"></span>Gen AI Use Case Requirements</div>
+            <div class="cell-item"><span class="cell-dot"></span>Performance &amp; Safety Criteria</div>
+          </div>
+        </div>
+        <div class="s3-cell de-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Pipeline Specifications</div>
+            <div class="cell-item"><span class="cell-dot"></span>Source-to-Target Mappings</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Quality Rules</div>
+          </div>
+        </div>
+        <div class="s3-cell dna-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Analytics Requirements</div>
+            <div class="cell-item"><span class="cell-dot"></span>KPI &amp; Metric Definitions</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Product Specifications</div>
+          </div>
+        </div>
+        <div class="s3-cell mod-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Transformation Business Cases</div>
+            <div class="cell-item"><span class="cell-dot"></span>Use Case Designs</div>
+            <div class="cell-item"><span class="cell-dot"></span>Acceptance Criteria</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 — Contracts, Evaluations & Validations -->
+      <div class="s3-row" id="s3r-3" data-step="3"
+           style="--row-color:#c084fc;--row-color-bg:rgba(192,132,252,0.12);--row-color-bdr:rgba(192,132,252,0.3)"
+           onclick="selectStep(3)">
+        <div class="s3-step-lbl">
+          <div class="step-num-badge">3</div>
+          <span class="step-lbl-name">Contracts &amp; Evaluations</span>
+        </div>
+        <div class="s3-cell aie-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Prompt Contracts</div>
+            <div class="cell-item"><span class="cell-dot"></span>Model Evaluation Criteria</div>
+            <div class="cell-item"><span class="cell-dot"></span>Safety &amp; Responsible AI Guardrails</div>
+          </div>
+        </div>
+        <div class="s3-cell de-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Data Contracts &amp; Schema Contracts</div>
+            <div class="cell-item"><span class="cell-dot"></span>Pipeline SLA Definitions</div>
+            <div class="cell-item"><span class="cell-dot"></span>Quality Threshold Validations</div>
+          </div>
+        </div>
+        <div class="s3-cell dna-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Metric &amp; Data Product Contracts</div>
+            <div class="cell-item"><span class="cell-dot"></span>Insight Quality Thresholds</div>
+            <div class="cell-item"><span class="cell-dot"></span>Access &amp; Consumption Contracts</div>
+          </div>
+        </div>
+        <div class="s3-cell mod-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Delivery Contracts</div>
+            <div class="cell-item"><span class="cell-dot"></span>Governance Gate Criteria</div>
+            <div class="cell-item"><span class="cell-dot"></span>Change Validations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 — Engine Execution -->
+      <div class="s3-row" id="s3r-4" data-step="4"
+           style="--row-color:#22d3ee;--row-color-bg:rgba(34,211,238,0.12);--row-color-bdr:rgba(34,211,238,0.3)"
+           onclick="selectStep(4)">
+        <div class="s3-step-lbl">
+          <div class="step-num-badge">4</div>
+          <span class="step-lbl-name">Engine Execution</span>
+        </div>
+        <div class="s3-cell aie-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Model Training &amp; Deployment</div>
+            <div class="cell-item"><span class="cell-dot"></span>Gen AI Pipeline Execution</div>
+            <div class="cell-item"><span class="cell-dot"></span>LLM &amp; Agent Integration</div>
+          </div>
+        </div>
+        <div class="s3-cell de-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>DataOps Pipeline Execution</div>
+            <div class="cell-item"><span class="cell-dot"></span>Automated Quality Checks</div>
+            <div class="cell-item"><span class="cell-dot"></span>CI/CD for Data</div>
+          </div>
+        </div>
+        <div class="s3-cell dna-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Analytics &amp; Report Delivery</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Product Build &amp; Publish</div>
+            <div class="cell-item"><span class="cell-dot"></span>Insight Generation</div>
+          </div>
+        </div>
+        <div class="s3-cell mod-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Build &amp; Deploy Execution</div>
+            <div class="cell-item"><span class="cell-dot"></span>PDLC Automation</div>
+            <div class="cell-item"><span class="cell-dot"></span>Transformation Delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 — Monitoring & Governance -->
+      <div class="s3-row" id="s3r-5" data-step="5"
+           style="--row-color:#34d399;--row-color-bg:rgba(52,211,153,0.12);--row-color-bdr:rgba(52,211,153,0.3)"
+           onclick="selectStep(5)">
+        <div class="s3-step-lbl">
+          <div class="step-num-badge">5</div>
+          <span class="step-lbl-name">Monitoring &amp; Governance</span>
+        </div>
+        <div class="s3-cell aie-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>AI Ops &amp; Model Drift Detection</div>
+            <div class="cell-item"><span class="cell-dot"></span>LLM Observability</div>
+            <div class="cell-item"><span class="cell-dot"></span>Responsible AI Compliance</div>
+          </div>
+        </div>
+        <div class="s3-cell de-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Pipeline Health Monitoring</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Quality SLA Tracking</div>
+            <div class="cell-item"><span class="cell-dot"></span>Incident Management</div>
+          </div>
+        </div>
+        <div class="s3-cell dna-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Analytics Usage &amp; Adoption</div>
+            <div class="cell-item"><span class="cell-dot"></span>Insight Accuracy Validation</div>
+            <div class="cell-item"><span class="cell-dot"></span>Data Product Performance</div>
+          </div>
+        </div>
+        <div class="s3-cell mod-c">
+          <div class="cell-items">
+            <div class="cell-item"><span class="cell-dot"></span>Delivery KPI Tracking</div>
+            <div class="cell-item"><span class="cell-dot"></span>Value Realisation Measurement</div>
+            <div class="cell-item"><span class="cell-dot"></span>Continuous Improvement</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /s3-grid-wrap -->
+
+    <!-- Step detail panel -->
+    <div class="s3-detail">
+      <div class="s3-hint" id="s3-hint">Click any row to see the PDLC step detail</div>
+      <div class="s3-detail-card" id="s3-detail-card">
+        <div class="s3-detail-badge" id="s3-detail-badge"></div>
+        <div class="s3-detail-body">
+          <h4 id="s3-detail-title"></h4>
+          <p  id="s3-detail-desc"></p>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /slide-3 -->
+
 </div><!-- /deck -->
 
 
@@ -692,10 +1209,17 @@
     Scope
   </button>
 
+  <button class="tab" role="tab"
+          aria-selected="false" aria-controls="slide-3"
+          data-slide="3" onclick="switchSlide(3)">
+    <span class="tab-num">03</span>
+    Operating Model
+  </button>
+
   <div class="tab-bar-right" aria-live="polite">
     <span class="curr" id="curr-indicator">1</span>
     <span>/</span>
-    <span id="total-indicator">2</span>
+    <span id="total-indicator">3</span>
   </div>
 
 </nav>
@@ -772,6 +1296,85 @@
       caps: ['Modernisation Delivery','Use Case Pipeline','Legacy Migration','Transformation Governance','Innovation Management','PDLC Delivery']
     }
   };
+
+  /* ── Slide 3 — PDLC step data ──────────────── */
+  const STEP_DATA = {
+    1: {
+      label: 'Step 1 — Toolset Selection',
+      color:    '#94a3b8',
+      colorBg:  'rgba(148,163,184,0.15)',
+      colorBdr: 'rgba(148,163,184,0.3)',
+      desc: 'Before any specification work begins, each AICOE pillar selects and configures its domain-specific toolset. AIE selects AI/ML frameworks and LLM APIs; DE configures data platforms and orchestrators; DNA sets up BI and analytics environments; MOD establishes the PDLC toolchain. Toolset selection is a prerequisite — the capabilities and constraints of chosen tools directly shape how specifications should be written and what evaluation criteria are feasible.'
+    },
+    2: {
+      label: 'Step 2 — Business Requirements Definition',
+      color:    '#60a5fa',
+      colorBg:  'rgba(96,165,250,0.15)',
+      colorBdr: 'rgba(96,165,250,0.3)',
+      desc: 'AI-Enabled Business Personas author detailed, structured requirements for each pillar\'s domain. These are precise specifications — not abstract wish lists — describing functionality, data flows, business rules, dependencies on external systems, and acceptance criteria. They serve as the authoritative statement of what each pillar\'s output should achieve and are structured so the AI engine can consume them directly.'
+    },
+    3: {
+      label: 'Step 3 — Contracts, Evaluations & Validations',
+      color:    '#c084fc',
+      colorBg:  'rgba(192,132,252,0.15)',
+      colorBdr: 'rgba(192,132,252,0.3)',
+      desc: 'Requirements are wrapped with three governance layers applied consistently across all four pillars. Prompt Contracts translate requirements into machine-readable instructions for AI engine consumption. Evaluations define quantitative and qualitative quality criteria — accuracy thresholds, format compliance, safety guardrails, and domain-specific correctness checks. Validations specify the acceptance tests and edge-case scenarios that must pass before any output is promoted to production.'
+    },
+    4: {
+      label: 'Step 4 — Engine Execution',
+      color:    '#22d3ee',
+      colorBg:  'rgba(34,211,238,0.15)',
+      colorBdr: 'rgba(34,211,238,0.3)',
+      desc: 'The AI engine consumes the wrapped specifications and generates outputs across all pillars — code and models for AIE, data pipelines for DE, analytics and data products for DNA, and transformation artefacts for MOD. Automated testing runs continuously against evaluation criteria, with CI/CD pipelines handling deployment. Human oversight is reserved for exceptions and strategic decisions, enabling high-velocity delivery at scale.'
+    },
+    5: {
+      label: 'Step 5 — Monitoring & Governance',
+      color:    '#34d399',
+      colorBg:  'rgba(52,211,153,0.15)',
+      colorBdr: 'rgba(52,211,153,0.3)',
+      desc: 'Deployed outputs are continuously monitored across all pillars using observability platforms. Each pillar validates outcomes against original requirements: AIE monitors model drift and AI safety compliance; DE tracks pipeline health and data quality SLAs; DNA measures analytics accuracy and product adoption; MOD tracks delivery KPIs and value realisation. Continuous compliance with prompt contracts and governance controls is enforced throughout.'
+    }
+  };
+
+  let activeStep = null;
+
+  function selectStep(n) {
+    const data = STEP_DATA[n];
+    if (!data) return;
+
+    /* Reset all rows */
+    document.querySelectorAll('.s3-row').forEach(r => r.classList.remove('active'));
+
+    /* Toggle off */
+    if (activeStep === n) {
+      activeStep = null;
+      document.getElementById('s3-hint').style.display = '';
+      document.getElementById('s3-detail-card').classList.remove('visible');
+      return;
+    }
+    activeStep = n;
+
+    /* Highlight row */
+    document.getElementById('s3r-' + n).classList.add('active');
+
+    /* Populate detail card */
+    const badge = document.getElementById('s3-detail-badge');
+    badge.textContent   = data.label;
+    badge.style.background  = data.colorBg;
+    badge.style.color       = data.color;
+    badge.style.border      = '1px solid ' + data.colorBdr;
+
+    document.getElementById('s3-detail-card').style.borderColor = data.colorBdr;
+    document.getElementById('s3-detail-title').textContent = data.label;
+    document.getElementById('s3-detail-desc').textContent  = data.desc;
+
+    /* Show card */
+    document.getElementById('s3-hint').style.display = 'none';
+    const card = document.getElementById('s3-detail-card');
+    card.classList.remove('visible');
+    void card.offsetWidth;
+    card.classList.add('visible');
+  }
 
   let activeNode = null;
 

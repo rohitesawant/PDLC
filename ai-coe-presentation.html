@@ -1799,6 +1799,242 @@
     color: #64748b;
     margin-top: 2px;
   }
+
+  /* ============================================
+     Slide 7 — Risks Associated (SDLC vs PDLC)
+     ============================================ */
+  #slide-7 {
+    justify-content: flex-start;
+    padding: 28px 36px 36px;
+  }
+  #slide-7 .slide-head { margin-bottom: 14px; }
+  #slide-7 .slide-title { font-size: 34px; }
+  #slide-7 .slide-subtitle { font-size: 14px; margin-top: 6px; }
+
+  .rsk-canvas {
+    width: min(1780px, 100%);
+    background: #fbf9ff;
+    border: 1px solid #e6dff0;
+    border-radius: 18px;
+    padding: 28px 32px 30px;
+    box-shadow: 0 18px 44px rgba(167, 139, 250, 0.18);
+    color: #1f2937;
+  }
+
+  .rsk-grid {
+    display: grid;
+    grid-template-columns: 170px 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Column headers */
+  .rsk-corner { background: transparent; }
+  .rsk-col-head {
+    --rc-color: #a78bfa;
+    --rc-soft: rgba(167, 139, 250, 0.15);
+    background: linear-gradient(160deg, var(--rc-soft), #ffffff);
+    border: 1px solid var(--rc-color);
+    border-top: 4px solid var(--rc-color);
+    border-radius: 12px;
+    padding: 14px 18px 16px;
+  }
+  .rsk-col-head.sdlc { --rc-color: #a78bfa; --rc-soft: rgba(167, 139, 250, 0.15); }
+  .rsk-col-head.pdlc { --rc-color: #34d399; --rc-soft: rgba(52, 211, 153, 0.15); }
+  .rsk-col-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--rc-color);
+    margin-bottom: 6px;
+  }
+  .rsk-col-head.sdlc .rsk-col-tag { color: #7c3aed; }
+  .rsk-col-head.pdlc .rsk-col-tag { color: #047857; }
+  .rsk-col-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: #1e293b;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+  }
+  .rsk-col-sub {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  /* Category label cell */
+  .rsk-cat {
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+  .rsk-cat .rc-num {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #a78bfa;
+    text-transform: uppercase;
+  }
+  .rsk-cat .rc-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: #334155;
+    line-height: 1.25;
+  }
+
+  /* Risk cell */
+  .rsk-cell {
+    --rk-color: #a78bfa;
+    background: #ffffff;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-left: 4px solid var(--rk-color);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(167, 139, 250, 0.06);
+    position: relative;
+  }
+  .rsk-cell.sdlc { --rk-color: #a78bfa; }
+  .rsk-cell.pdlc { --rk-color: #34d399; border-color: rgba(52, 211, 153, 0.2); box-shadow: 0 2px 8px rgba(52, 211, 153, 0.06); }
+
+  .rsk-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .rsk-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.25;
+  }
+  .rsk-desc {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.45;
+  }
+  .rsk-severity {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid;
+    flex-shrink: 0;
+  }
+  .rsk-severity.high { color: #b91c1c; background: rgba(248, 113, 113, 0.14); border-color: rgba(248, 113, 113, 0.45); }
+  .rsk-severity.med  { color: #b45309; background: rgba(251, 191, 36, 0.16); border-color: rgba(251, 191, 36, 0.45); }
+  .rsk-severity.low  { color: #047857; background: rgba(52, 211, 153, 0.16); border-color: rgba(52, 211, 153, 0.4); }
+
+  .rsk-mitigation {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.1);
+    line-height: 1.4;
+  }
+  .rsk-mitigation .rm-tag {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--rk-color);
+    margin-right: 4px;
+  }
+  .rsk-cell.pdlc .rsk-mitigation .rm-tag { color: #047857; }
+  .rsk-cell.sdlc .rsk-mitigation .rm-tag { color: #7c3aed; }
+
+  /* Overall risk summary footer */
+  .rsk-summary {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 170px 1fr 1fr;
+    gap: 10px;
+  }
+  .rsk-summary-label {
+    background: linear-gradient(135deg, #fce7f3, #f3e8ff);
+    border: 1px solid #f9a8d4;
+    border-radius: 10px;
+    padding: 14px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+  .rsk-summary-label .rsl-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #be185d;
+  }
+  .rsk-summary-label .rsl-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+  .rsk-summary-cell {
+    --s-color: #a78bfa;
+    background: linear-gradient(135deg, #ffffff, rgba(167, 139, 250, 0.08));
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .rsk-summary-cell.pdlc {
+    --s-color: #34d399;
+    background: linear-gradient(135deg, #ffffff, rgba(52, 211, 153, 0.1));
+    border-color: rgba(52, 211, 153, 0.35);
+  }
+  .rsk-summary-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--s-color);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .rsk-summary-text .rst-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    color: #1e293b;
+  }
+  .rsk-summary-text .rst-sub {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 2px;
+  }
 </style>
 </head>
 <body>
@@ -2816,17 +3052,166 @@
   </section>
 
   <!-- ============================================
-       SLIDE 7 — Implementation Plan
+       SLIDE 7 — Risks Associated (SDLC vs PDLC for AMS)
        ============================================ -->
   <section class="slide" id="slide-7" role="tabpanel">
     <div class="slide-head">
       <div class="pre-title">07 — Risk Assessment</div>
-      <h2 class="slide-title">Risks Associated</h2>
-      <p class="slide-subtitle">Key risks, dependencies, and mitigation strategies across the revised operating model.</p>
+      <h2 class="slide-title">Risks Associated — Both Approaches</h2>
+      <p class="slide-subtitle">Side-by-side risk view across five dimensions for an Application Maintenance, Support &amp; Change organisation adopting either Agentic AI acceleration or AI-Led Build.</p>
     </div>
-    <div class="content-card">
-      <span class="hint">Content Pending</span>
-      Phased implementation plan, milestones, and timelines will be added here.
+
+    <div class="rsk-canvas">
+
+      <div class="rsk-grid">
+
+        <!-- Column headers -->
+        <div class="rsk-corner"></div>
+        <div class="rsk-col-head sdlc">
+          <span class="rsk-col-tag">⚡ Bolt-On · SDLC</span>
+          <div class="rsk-col-title">Agentic AI Risks</div>
+          <span class="rsk-col-sub">Accelerating today's AMS model with AI agents</span>
+        </div>
+        <div class="rsk-col-head pdlc">
+          <span class="rsk-col-tag">🏗️ Built-In · PDLC</span>
+          <div class="rsk-col-title">AI-Led Build Risks</div>
+          <span class="rsk-col-sub">Replacing humans with AI for code build &amp; maintenance</span>
+        </div>
+
+        <!-- Row 1: Delivery & Quality -->
+        <div class="rsk-cat">
+          <span class="rc-num">01</span>
+          <span class="rc-name">Delivery &amp; Quality</span>
+        </div>
+        <div class="rsk-cell sdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Hallucinated fixes &amp; missed edge cases</span>
+            <span class="rsk-severity med">Medium</span>
+          </div>
+          <span class="rsk-desc">Agents can generate plausible-but-wrong patches on legacy or bespoke code — regressions leak to production when human review is rushed.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Strict gated reviews, automated regression suites and per-agent confidence thresholds.</span>
+        </div>
+        <div class="rsk-cell pdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Model drift &amp; emergent regressions</span>
+            <span class="rsk-severity med">Medium</span>
+          </div>
+          <span class="rsk-desc">Autonomous AI behaviour shifts as the engine learns; each release is harder to validate against prior baselines.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Continuous eval harnesses, canary releases and versioned model snapshots.</span>
+        </div>
+
+        <!-- Row 2: People & Skills -->
+        <div class="rsk-cat">
+          <span class="rc-num">02</span>
+          <span class="rc-name">People &amp; Skills</span>
+        </div>
+        <div class="rsk-cell sdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Skill atrophy &amp; junior pipeline dries up</span>
+            <span class="rsk-severity med">Medium</span>
+          </div>
+          <span class="rsk-desc">Engineers lose core troubleshooting muscle by leaning on agents — the pipeline for senior L3 talent weakens over time.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Structured shadowing, rotation programs and agent-free deep-dive clinics.</span>
+        </div>
+        <div class="rsk-cell pdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Workforce transition shock</span>
+            <span class="rsk-severity high">High</span>
+          </div>
+          <span class="rsk-desc">Traditional developer roles shrink; organisation needs intent, prompt &amp; AI engineers — change-management and morale risk is real.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Reskilling academy, persona redesign and phased role migration.</span>
+        </div>
+
+        <!-- Row 3: Governance & Compliance -->
+        <div class="rsk-cat">
+          <span class="rc-num">03</span>
+          <span class="rc-name">Governance &amp; Compliance</span>
+        </div>
+        <div class="rsk-cell sdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Audit gap &amp; data leakage</span>
+            <span class="rsk-severity high">High</span>
+          </div>
+          <span class="rsk-desc">Code, tickets and logs flow to third-party LLMs — IP &amp; PII exposure, and it's hard to trace "agent vs human" on every change.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Private model gateways, redaction, and immutable agent-action logs.</span>
+        </div>
+        <div class="rsk-cell pdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Accountability &amp; regulatory uncertainty</span>
+            <span class="rsk-severity high">High</span>
+          </div>
+          <span class="rsk-desc">Who owns an incident when AI built the code? Emerging regulation (EU AI Act, sectoral rules) is still shifting underneath.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Clear AI ownership RACI, responsible-AI board and regulatory watch.</span>
+        </div>
+
+        <!-- Row 4: Cost & Commercial -->
+        <div class="rsk-cat">
+          <span class="rc-num">04</span>
+          <span class="rc-name">Cost &amp; Commercial</span>
+        </div>
+        <div class="rsk-cell sdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Vendor lock-in &amp; licensing creep</span>
+            <span class="rsk-severity med">Medium</span>
+          </div>
+          <span class="rsk-desc">Per-seat Copilot-style licensing compounds as adoption grows; limited negotiation leverage once workflows are embedded.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Abstraction layer over providers and annual usage reviews.</span>
+        </div>
+        <div class="rsk-cell pdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Upfront investment &amp; opex volatility</span>
+            <span class="rsk-severity high">High</span>
+          </div>
+          <span class="rsk-desc">Platform, data and compute costs are front-loaded; token &amp; inference costs are hard to forecast at enterprise scale.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>FinOps guardrails, per-workload budgets and caching strategies.</span>
+        </div>
+
+        <!-- Row 5: Strategic & Transformation -->
+        <div class="rsk-cat">
+          <span class="rc-num">05</span>
+          <span class="rc-name">Strategic &amp; Transformation</span>
+        </div>
+        <div class="rsk-cell sdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Productivity plateau — no structural shift</span>
+            <span class="rsk-severity high">High</span>
+          </div>
+          <span class="rsk-desc">Gains cap at ~25–30%; underlying AMS operating model is unchanged, leaving competitors free to leapfrog with PDLC.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Treat as a stepping-stone; keep PDLC roadmap live in parallel.</span>
+        </div>
+        <div class="rsk-cell pdlc">
+          <div class="rsk-top-row">
+            <span class="rsk-title">Early-adopter risk &amp; unproven patterns</span>
+            <span class="rsk-severity med">Medium</span>
+          </div>
+          <span class="rsk-desc">Blueprints are still emerging — few peer references, and missteps tend to be public and costly.</span>
+          <span class="rsk-mitigation"><span class="rm-tag">Mitigate</span>Phased rollout, peer benchmarks and lighthouse-application pilots.</span>
+        </div>
+
+      </div>
+
+      <!-- Overall risk summary -->
+      <div class="rsk-summary">
+        <div class="rsk-summary-label">
+          <span class="rsl-tag">Overall Risk</span>
+          <span class="rsl-title">Net Profile</span>
+        </div>
+        <div class="rsk-summary-cell sdlc">
+          <div class="rsk-summary-icon">⚡</div>
+          <div class="rsk-summary-text">
+            <span class="rst-title">Lower execution risk · higher strategic risk</span>
+            <span class="rst-sub">Easy to start, familiar operating model — but ceiling &amp; plateau cap the long-term upside for AMS.</span>
+          </div>
+        </div>
+        <div class="rsk-summary-cell pdlc">
+          <div class="rsk-summary-icon">🏗️</div>
+          <div class="rsk-summary-text">
+            <span class="rst-title">Higher execution risk · lower strategic risk</span>
+            <span class="rst-sub">Harder to stand up, but once in place it compounds — governance, talent &amp; FinOps controls are the critical success factors.</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

@@ -755,6 +755,187 @@
     pointer-events: none;
     z-index: 1;
   }
+
+  /* ============================================
+     Slide 3 — AICOE Operating Model
+     ============================================ */
+  #slide-3 {
+    justify-content: flex-start;
+    padding: 32px 48px 48px;
+  }
+  #slide-3 .slide-head { margin-bottom: 18px; }
+  #slide-3 .slide-title { font-size: 38px; }
+
+  .op-slide-label {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 6px 14px;
+    border-radius: 6px;
+    z-index: 4;
+  }
+
+  /* Light corporate canvas */
+  .op-canvas {
+    width: min(1700px, 100%);
+    background: #f7f9fc;
+    border: 1px solid #d8e0ec;
+    border-radius: 18px;
+    padding: 32px 36px 36px;
+    box-shadow: 0 20px 50px rgba(0, 20, 60, 0.35);
+    color: #1f2937;
+  }
+
+  /* SMART DATA OPS envelope */
+  .smart-envelope {
+    position: relative;
+    border: 2.5px dashed #334155;
+    border-radius: 16px;
+    background: rgba(51, 65, 85, 0.04);
+    padding: 52px 26px 28px;
+    margin-top: 18px;
+  }
+  .smart-envelope-label {
+    position: absolute;
+    top: -18px;
+    left: 30px;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 8px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.35);
+  }
+  .smart-envelope-sub {
+    position: absolute;
+    top: -13px;
+    right: 30px;
+    background: #f7f9fc;
+    padding: 2px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    letter-spacing: 0.5px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .smart-envelope-sub .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #94a3b8;
+  }
+
+  /* Pillars grid */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.7fr;
+    gap: 22px;
+  }
+
+  .pillar {
+    --pillar-color: #2563eb;
+    --pillar-soft: rgba(37, 99, 235, 0.08);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid var(--pillar-color);
+    border-radius: 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+  }
+  .pillar.p-aie { --pillar-color: #2563eb; --pillar-soft: rgba(37, 99, 235, 0.08); }
+  .pillar.p-de  { --pillar-color: #0d9488; --pillar-soft: rgba(13, 148, 136, 0.08); }
+  .pillar.p-dna { --pillar-color: #7c3aed; --pillar-soft: rgba(124, 58, 237, 0.08); }
+
+  .pillar-head {
+    background: var(--pillar-color);
+    color: #ffffff;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pillar-head .pillar-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .pillar-body {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+  }
+
+  .pillar-graphic {
+    background: var(--pillar-soft);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 10px;
+    padding: 18px 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .pillar-graphic-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+  }
+  .pillar-graphic-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    letter-spacing: 0.3px;
+    text-align: center;
+  }
+  .pillar-subtitle {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* Icon cell base */
+  .icon-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .icon-cell .icon-caption {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #64748b;
+    text-transform: uppercase;
+  }
 </style>
 </head>
 <body>
@@ -1012,17 +1193,220 @@
   </section>
 
   <!-- ============================================
-       SLIDE 3 — Bolt On: What it has
+       SLIDE 3 — AICOE Operating Model
        ============================================ -->
   <section class="slide" id="slide-3" role="tabpanel">
+    <div class="op-slide-label">Slide 3</div>
     <div class="slide-head">
       <div class="pre-title">03 — Operating Model</div>
-      <h2 class="slide-title">Operating Model — Revised</h2>
-      <p class="slide-subtitle">The revised operating model reflecting both Bolt On and Built In approaches under the AICOE.</p>
+      <h2 class="slide-title">AICOE Operating Model</h2>
+      <p class="slide-subtitle">A unified operating fabric — governance and run-time services wrap three delivery pillars powered by humans, agents and neural engines.</p>
     </div>
-    <div class="content-card">
-      <span class="hint">Content Pending</span>
-      Bolt On features, components, and vendor capabilities will be detailed here.
+
+    <div class="op-canvas">
+
+      <!-- SMART DATA OPS envelope -->
+      <div class="smart-envelope">
+        <div class="smart-envelope-label">SMART DATA OPS</div>
+        <div class="smart-envelope-sub">
+          <span>Work Management</span><span class="dot"></span>
+          <span>Incident Management</span><span class="dot"></span>
+          <span>Observability</span><span class="dot"></span>
+          <span>FinOps</span>
+        </div>
+
+        <!-- Three Pillars -->
+        <div class="pillar-grid">
+
+          <!-- PILLAR 1: AI Engineering -->
+          <div class="pillar p-aie">
+            <div class="pillar-head">
+              <span>AI Engineering</span>
+              <span class="pillar-tag">Pillar 01</span>
+            </div>
+            <div class="pillar-body">
+              <div class="pillar-graphic">
+                <div class="pillar-graphic-row">
+                  <!-- Human icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="2.5"/>
+                    </svg>
+                    <span class="icon-caption">Human</span>
+                  </div>
+
+                  <!-- Bidirectional arrow -->
+                  <svg width="70" height="40" viewBox="0 0 70 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <marker id="arrL-aie" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <path d="M0,5 L10,0 L10,10 Z" fill="#2563eb"/>
+                      </marker>
+                      <marker id="arrR-aie" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
+                        <path d="M10,5 L0,0 L0,10 Z" fill="#2563eb"/>
+                      </marker>
+                    </defs>
+                    <line x1="10" y1="20" x2="60" y2="20" stroke="#2563eb" stroke-width="2.5"
+                          marker-start="url(#arrR-aie)" marker-end="url(#arrL-aie)"/>
+                  </svg>
+
+                  <!-- Agent icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3" fill="#2563eb"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+                      <circle cx="22" cy="30" r="3" fill="#2563eb"/>
+                      <circle cx="42" cy="30" r="3" fill="#2563eb"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#2563eb"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="icon-caption">Agent</span>
+                  </div>
+                </div>
+                <div class="pillar-graphic-label">Human–Agent Collaboration</div>
+              </div>
+              <div class="pillar-subtitle">Model development, deployment &amp; orchestration</div>
+            </div>
+          </div>
+
+          <!-- PILLAR 2: Data Engineering -->
+          <div class="pillar p-de">
+            <div class="pillar-head">
+              <span>Data Engineering</span>
+              <span class="pillar-tag">Pillar 02</span>
+            </div>
+            <div class="pillar-body">
+              <div class="pillar-graphic">
+                <div class="pillar-graphic-row">
+                  <!-- Human icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#0d9488" stroke-width="2.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#0d9488" stroke-width="2.5"/>
+                    </svg>
+                    <span class="icon-caption">Human</span>
+                  </div>
+
+                  <!-- Bidirectional arrow -->
+                  <svg width="70" height="40" viewBox="0 0 70 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <marker id="arrL-de" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <path d="M0,5 L10,0 L10,10 Z" fill="#0d9488"/>
+                      </marker>
+                      <marker id="arrR-de" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
+                        <path d="M10,5 L0,0 L0,10 Z" fill="#0d9488"/>
+                      </marker>
+                    </defs>
+                    <line x1="10" y1="20" x2="60" y2="20" stroke="#0d9488" stroke-width="2.5"
+                          marker-start="url(#arrR-de)" marker-end="url(#arrL-de)"/>
+                  </svg>
+
+                  <!-- Agent icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3" fill="#0d9488"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="2.5"/>
+                      <circle cx="22" cy="30" r="3" fill="#0d9488"/>
+                      <circle cx="42" cy="30" r="3" fill="#0d9488"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="icon-caption">Agent</span>
+                  </div>
+                </div>
+                <div class="pillar-graphic-label">Human–Agent Collaboration</div>
+              </div>
+              <div class="pillar-subtitle">Pipelines, quality &amp; data products</div>
+            </div>
+          </div>
+
+          <!-- PILLAR 3: DNA & Modernisation -->
+          <div class="pillar p-dna">
+            <div class="pillar-head">
+              <span>DNA &amp; Modernisation</span>
+              <span class="pillar-tag">Pillar 03</span>
+            </div>
+            <div class="pillar-body">
+              <div class="pillar-graphic">
+                <div class="pillar-graphic-row">
+                  <!-- Human icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#7c3aed" stroke-width="2.5"/>
+                    </svg>
+                    <span class="icon-caption">Human</span>
+                  </div>
+
+                  <!-- Agent icon -->
+                  <div class="icon-cell">
+                    <svg width="64" height="80" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3" fill="#7c3aed"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+                      <circle cx="22" cy="30" r="3" fill="#7c3aed"/>
+                      <circle cx="42" cy="30" r="3" fill="#7c3aed"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#7c3aed"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="icon-caption">Agent</span>
+                  </div>
+
+                  <!-- Neural engine icon -->
+                  <div class="icon-cell">
+                    <svg width="110" height="80" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
+                      <!-- connections layer1 -> layer2 -->
+                      <g stroke="#7c3aed" stroke-width="1.3" opacity="0.55">
+                        <line x1="18" y1="18" x2="55" y2="14"/>
+                        <line x1="18" y1="18" x2="55" y2="40"/>
+                        <line x1="18" y1="18" x2="55" y2="66"/>
+                        <line x1="18" y1="40" x2="55" y2="14"/>
+                        <line x1="18" y1="40" x2="55" y2="40"/>
+                        <line x1="18" y1="40" x2="55" y2="66"/>
+                        <line x1="18" y1="62" x2="55" y2="14"/>
+                        <line x1="18" y1="62" x2="55" y2="40"/>
+                        <line x1="18" y1="62" x2="55" y2="66"/>
+                      </g>
+                      <!-- connections layer2 -> layer3 -->
+                      <g stroke="#7c3aed" stroke-width="1.3" opacity="0.55">
+                        <line x1="55" y1="14" x2="92" y2="28"/>
+                        <line x1="55" y1="14" x2="92" y2="52"/>
+                        <line x1="55" y1="40" x2="92" y2="28"/>
+                        <line x1="55" y1="40" x2="92" y2="52"/>
+                        <line x1="55" y1="66" x2="92" y2="28"/>
+                        <line x1="55" y1="66" x2="92" y2="52"/>
+                      </g>
+                      <!-- Layer 1 -->
+                      <circle cx="18" cy="18" r="5" fill="#7c3aed"/>
+                      <circle cx="18" cy="40" r="5" fill="#7c3aed"/>
+                      <circle cx="18" cy="62" r="5" fill="#7c3aed"/>
+                      <!-- Layer 2 -->
+                      <circle cx="55" cy="14" r="5" fill="#a78bfa"/>
+                      <circle cx="55" cy="40" r="5" fill="#a78bfa"/>
+                      <circle cx="55" cy="66" r="5" fill="#a78bfa"/>
+                      <!-- Layer 3 -->
+                      <circle cx="92" cy="28" r="5" fill="#7c3aed"/>
+                      <circle cx="92" cy="52" r="5" fill="#7c3aed"/>
+                    </svg>
+                    <span class="icon-caption">Neural Engine</span>
+                  </div>
+                </div>
+                <div class="pillar-graphic-label">Human · Agent · Neural Engine</div>
+              </div>
+              <div class="pillar-subtitle">Platform evolution &amp; capability uplift</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 

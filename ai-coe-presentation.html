@@ -1411,24 +1411,24 @@
   .tl-cell.c-dna { --cell-color: #34d399; }
   .tl-cell.c-mod { --cell-color: #fbbf24; }
 
-  /* Merged cell (DE + Mod from Y3) */
+  /* Merged cell (DNA + Mod from Y3) */
   .tl-cell.c-merged {
-    --cell-color: #818cf8;
-    background: linear-gradient(160deg, #eff6ff 0%, #fef3c7 100%);
-    border: 1px solid #c7d2fe;
-    border-top: 3px solid #818cf8;
+    --cell-color: #10b981;
+    background: linear-gradient(160deg, #d1fae5 0%, #fef3c7 100%);
+    border: 1px solid #a7f3d0;
+    border-top: 3px solid #10b981;
     grid-row: span 2;
   }
   .tl-cell.c-merged::before {
-    content: 'DE + MOD · MERGED';
+    content: 'DNA + MOD · MERGED';
     position: absolute;
     top: 4px;
     right: 8px;
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 1.2px;
-    color: #6366f1;
-    background: rgba(129, 140, 248, 0.15);
+    color: #047857;
+    background: rgba(16, 185, 129, 0.15);
     padding: 1px 6px;
     border-radius: 4px;
   }
@@ -1474,7 +1474,7 @@
   }
   .tl-cell.c-merged .tl-percent .pct-num,
   .tl-cell.c-merged .tl-percent .pct-sign {
-    color: #4f46e5;
+    color: #047857;
   }
   .tl-progress {
     height: 4px;
@@ -1488,7 +1488,7 @@
     border-radius: 999px;
   }
   .tl-cell.c-merged .tl-progress-bar {
-    background: linear-gradient(90deg, #818cf8, #fbbf24);
+    background: linear-gradient(90deg, #34d399, #fbbf24);
   }
 
   /* Footer insights */
@@ -1527,8 +1527,8 @@
     line-height: 1.4;
     margin-top: 4px;
   }
-  .tl-insight.ti-merge { border-left-color: #818cf8; }
-  .tl-insight.ti-merge .ti-tag { color: #4f46e5; }
+  .tl-insight.ti-merge { border-left-color: #10b981; }
+  .tl-insight.ti-merge .ti-tag { color: #047857; }
   .tl-insight.ti-heal { border-left-color: #f472b6; }
   .tl-insight.ti-heal .ti-tag { color: #be185d; }
 </style>
@@ -2194,7 +2194,7 @@
     <div class="slide-head">
       <div class="pre-title">05 — Implementation</div>
       <h2 class="slide-title">Model Implementation — Realistic</h2>
-      <p class="slide-subtitle">A seven-year productivity trajectory across four streams. Standard levers ramp in Year 1, AI Build / Execute kicks in Year 2, and Self Heal begins layering from Year 3 — while Data Engineering and Modernisation converge into a single merged stream.</p>
+      <p class="slide-subtitle">A seven-year productivity trajectory across four streams. Standard levers ramp in Year 1, AI Build / Execute kicks in Year 2, and Self Heal begins layering into AI &amp; Data Engineering from Year 3 — while DNA and Modernisation converge into a single merged stream.</p>
     </div>
 
     <div class="timeline-canvas">
@@ -2262,7 +2262,7 @@
           <div class="tl-progress"><div class="tl-progress-bar" style="width:82%"></div></div>
         </div>
 
-        <!-- Row 3: Data Engineering (only Y1, Y2 separate) -->
+        <!-- Row 3: Data Engineering (all 7 years separate) -->
         <div class="tl-lane-label ln-de">
           <span class="ll-code">Stream B</span>
           <span class="ll-name">Data Engineering</span>
@@ -2277,35 +2277,76 @@
           <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
           <div class="tl-progress"><div class="tl-progress-bar" style="width:30%"></div></div>
         </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">44</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:50%"></div></div>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">54</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:60%"></div></div>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">63</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:72%"></div></div>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">72</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:84%"></div></div>
+        </div>
 
-        <!-- Merged DE + Mod cells Y3-Y7 (span rows 3 + 4) -->
+        <!-- Row 4: DNA (Y1, Y2 separate, Y3-Y7 merged with MOD below) -->
+        <div class="tl-lane-label ln-dna">
+          <span class="ll-code">Stream C</span>
+          <span class="ll-name">DNA · Data &amp; Analytics</span>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
+          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">22</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
+        </div>
+
+        <!-- Merged DNA + Mod cells Y3-Y7 (span rows 4 + 5) -->
         <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">28</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:34%"></div></div>
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:30%"></div></div>
         </div>
         <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">40</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:46%"></div></div>
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
         </div>
         <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">38</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:44%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">44</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:50%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
           <div class="tl-percent"><span class="pct-num">50</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:56%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">60</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:68%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">68</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:80%"></div></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:58%"></div></div>
         </div>
 
-        <!-- Row 4: Modernisation (only Y1, Y2 separate) -->
+        <!-- Row 5: Modernisation (only Y1, Y2 separate) -->
         <div class="tl-lane-label ln-mod">
           <span class="ll-code">Stream D</span>
           <span class="ll-name">Modernisation</span>
@@ -2321,47 +2362,6 @@
           <div class="tl-progress"><div class="tl-progress-bar" style="width:26%"></div></div>
         </div>
 
-        <!-- Row 5: DNA (Data & Analytics) -->
-        <div class="tl-lane-label ln-dna">
-          <span class="ll-code">Stream C</span>
-          <span class="ll-name">DNA · Data &amp; Analytics</span>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
-          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">22</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:32%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">40</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:48%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">48</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:56%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">55</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:64%"></div></div>
-        </div>
-
       </div>
 
       <!-- Insights / footnotes -->
@@ -2373,13 +2373,13 @@
         </div>
         <div class="tl-insight ti-merge">
           <span class="ti-tag">Year 3 · Converge</span>
-          <span class="ti-title">DE + Modernisation Merge</span>
-          <span class="ti-desc">Data Engineering and Modernisation consolidate into one stream from Year 3, sharing benefit levers and delivery capacity.</span>
+          <span class="ti-title">DNA + Modernisation Merge</span>
+          <span class="ti-desc">Data &amp; Analytics and Modernisation consolidate into one stream from Year 3, sharing benefit levers and delivery capacity.</span>
         </div>
         <div class="tl-insight ti-heal">
           <span class="ti-tag">Year 3 → Year 7</span>
           <span class="ti-title">Self Heal Layers In</span>
-          <span class="ti-desc">AI Engineering and the merged DE + Mod stream progressively add Self Heal, compounding gains toward 70% by Year 7.</span>
+          <span class="ti-desc">AI Engineering and Data Engineering progressively add Self Heal from Year 3, compounding gains toward ~70% by Year 7.</span>
         </div>
       </div>
     </div>

@@ -1038,6 +1038,231 @@
     letter-spacing: 0.3px;
     margin-top: 3px;
   }
+
+  /* ============================================
+     Slide 4 — Productivity Hierarchy Tree
+     ============================================ */
+  #slide-4 {
+    justify-content: flex-start;
+    padding: 28px 36px 36px;
+  }
+  #slide-4 .slide-head { margin-bottom: 14px; }
+  #slide-4 .slide-title { font-size: 34px; }
+  #slide-4 .slide-subtitle { font-size: 14px; margin-top: 6px; }
+
+  .tree-canvas {
+    width: min(1780px, 100%);
+    background: #f7f9fc;
+    border: 1px solid #d8e0ec;
+    border-radius: 18px;
+    padding: 40px 40px 44px;
+    box-shadow: 0 20px 50px rgba(0, 20, 60, 0.35);
+    color: #1f2937;
+  }
+
+  /* Root node area */
+  .tree-root-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tnode {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 14px 22px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    position: relative;
+    z-index: 2;
+  }
+  .tnode .tnode-tag {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+  .tnode .tnode-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: #64748b;
+    margin-top: 4px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Root node */
+  .tnode.node-root {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    border: 1.5px solid #0f172a;
+    padding: 18px 36px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.28);
+  }
+  .tnode.node-root .tnode-tag { color: #94a3b8; }
+  .tnode.node-root .tnode-title {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: block;
+    background: linear-gradient(135deg, #ffffff, #00D4FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tnode.node-root .tnode-sub { color: #cbd5e1; margin-top: 6px; }
+
+  /* Branch nodes */
+  .org-branches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+    padding-top: 46px;
+  }
+  /* Vertical drop from root */
+  .org-branches::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 22px;
+    background: #94a3b8;
+  }
+  /* Horizontal spanner across all 4 branches */
+  .org-branches::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: #94a3b8;
+  }
+
+  .org-branch {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 22px;
+  }
+  /* Vertical line from horizontal spanner down to branch node */
+  .org-branch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 22px;
+    background: #94a3b8;
+  }
+
+  .tnode.node-branch {
+    --br-color: #2563eb;
+    border-top: 4px solid var(--br-color);
+    padding: 14px 16px;
+    border-radius: 10px;
+  }
+  .tnode.node-branch .tnode-tag { color: var(--br-color); }
+  .tnode.node-branch .tnode-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+  .org-branch.b-aie .tnode.node-branch { --br-color: #a855f7; }
+  .org-branch.b-de  .tnode.node-branch { --br-color: #0ea5e9; }
+  .org-branch.b-dna .tnode.node-branch { --br-color: #10b981; }
+  .org-branch.b-mod .tnode.node-branch { --br-color: #f59e0b; }
+
+  /* Leaves grid under each branch */
+  .org-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+    padding-top: 40px;
+    margin-top: 4px;
+  }
+  .org-sub::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #94a3b8;
+  }
+  .org-sub::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: #94a3b8;
+  }
+
+  .leaf-wrap {
+    position: relative;
+    padding-top: 20px;
+  }
+  .leaf-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #94a3b8;
+  }
+
+  .tnode.node-leaf {
+    --lf-color: #334155;
+    --lf-soft: rgba(51, 65, 85, 0.08);
+    background: var(--lf-soft);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-left: 4px solid var(--lf-color);
+    padding: 12px 12px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  }
+  .tnode.node-leaf.l-op { --lf-color: #2563eb; --lf-soft: rgba(37, 99, 235, 0.09); }
+  .tnode.node-leaf.l-ag { --lf-color: #0d9488; --lf-soft: rgba(13, 148, 136, 0.09); }
+  .tnode.node-leaf.l-ab { --lf-color: #7c3aed; --lf-soft: rgba(124, 58, 237, 0.09); }
+  .tnode.node-leaf .tnode-tag {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--lf-color);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .tnode.node-leaf .tnode-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+  .tnode.node-leaf .tnode-sub {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
 </style>
 </head>
 <body>
@@ -1571,17 +1796,126 @@
   </section>
 
   <!-- ============================================
-       SLIDE 4 — Built In: How it works
+       SLIDE 4 — Productivity Hierarchy Tree
        ============================================ -->
   <section class="slide" id="slide-4" role="tabpanel">
     <div class="slide-head">
       <div class="pre-title">04 — Productivity</div>
       <h2 class="slide-title">Productivity Chart — Mapped Benefits</h2>
-      <p class="slide-subtitle">Measured productivity gains and mapped benefits across the Bolt On and Built In delivery paths.</p>
+      <p class="slide-subtitle">Productivity is mapped across four AI CoE branches, each breaking down into distinct productivity streams that drive measurable uplift.</p>
     </div>
-    <div class="content-card">
-      <span class="hint">Content Pending</span>
-      Built In architecture, patterns, and delivery model will be detailed here.
+
+    <div class="tree-canvas">
+
+      <!-- Root: AI CoE -->
+      <div class="tree-root-wrap">
+        <div class="tnode node-root">
+          <span class="tnode-tag">Centre of Excellence</span>
+          <span class="tnode-title">AI CoE</span>
+          <span class="tnode-sub">Productivity · Delivery · Governance</span>
+        </div>
+      </div>
+
+      <!-- Four branches -->
+      <div class="org-branches">
+
+        <!-- BRANCH 1: AI Engineering -->
+        <div class="org-branch b-aie">
+          <div class="tnode node-branch">
+            <span class="tnode-tag">Branch 01</span>
+            <span class="tnode-title">AI Engineering</span>
+          </div>
+          <div class="org-sub">
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-op">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Operational Productivity</span>
+                <span class="tnode-sub">Run &amp; optimise AI workloads</span>
+              </div>
+            </div>
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-ag">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Agentic Productivity</span>
+                <span class="tnode-sub">Autonomous model delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 2: Data Engineering -->
+        <div class="org-branch b-de">
+          <div class="tnode node-branch">
+            <span class="tnode-tag">Branch 02</span>
+            <span class="tnode-title">Data Engineering</span>
+          </div>
+          <div class="org-sub">
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-op">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Operational Productivity</span>
+                <span class="tnode-sub">Pipelines, quality &amp; SLAs</span>
+              </div>
+            </div>
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-ag">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Agentic Productivity</span>
+                <span class="tnode-sub">Automated data products</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 3: DNA (Data and Analytics) -->
+        <div class="org-branch b-dna">
+          <div class="tnode node-branch">
+            <span class="tnode-tag">Branch 03</span>
+            <span class="tnode-title">DNA · Data &amp; Analytics</span>
+          </div>
+          <div class="org-sub">
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-op">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Operational Productivity</span>
+                <span class="tnode-sub">Platform, governance &amp; BI</span>
+              </div>
+            </div>
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-ab">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">AI Build / Execute Productivity</span>
+                <span class="tnode-sub">Analytic model build &amp; run</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH 4: Modernisation (MOD) -->
+        <div class="org-branch b-mod">
+          <div class="tnode node-branch">
+            <span class="tnode-tag">Branch 04</span>
+            <span class="tnode-title">Modernisation (MOD)</span>
+          </div>
+          <div class="org-sub">
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-op">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">Operational Productivity</span>
+                <span class="tnode-sub">Migration &amp; re-platforming</span>
+              </div>
+            </div>
+            <div class="leaf-wrap">
+              <div class="tnode node-leaf l-ab">
+                <span class="tnode-tag">Stream</span>
+                <span class="tnode-title">AI Build / Execute Productivity</span>
+                <span class="tnode-sub">AI-assisted transformation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 

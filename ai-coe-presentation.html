@@ -937,78 +937,105 @@
     background: #94a3b8;
   }
 
-  /* Layer rows */
-  .layer-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .layer-row {
-    --row-color: #2563eb;
-    --row-soft: rgba(37, 99, 235, 0.08);
+  /* Domains grid */
+  .domain-grid {
     display: grid;
-    grid-template-columns: 1.1fr 80px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
     align-items: stretch;
-    gap: 10px;
   }
-  .layer-row.r-human { --row-color: #2563eb; --row-soft: rgba(37, 99, 235, 0.08); }
-  .layer-row.r-agent { --row-color: #0d9488; --row-soft: rgba(13, 148, 136, 0.08); }
-  .layer-row.r-neural{ --row-color: #7c3aed; --row-soft: rgba(124, 58, 237, 0.08); }
 
-  .layer-box, .domain-box {
+  .domain-card {
+    --dc-color: #1e40af;
+    --dc-soft: rgba(30, 64, 175, 0.08);
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-left: 5px solid var(--row-color);
-    border-radius: 10px;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
-  }
-  .layer-box .layer-icon {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    background: var(--row-soft);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .layer-text, .domain-text {
+    border-top: 5px solid var(--dc-color);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
   }
-  .layer-name, .domain-name {
+  .domain-card.dc-aide { --dc-color: #1e40af; --dc-soft: rgba(30, 64, 175, 0.08); }
+  .domain-card.dc-dna  { --dc-color: #0f766e; --dc-soft: rgba(15, 118, 110, 0.08); }
+  .domain-card.dc-mod  { --dc-color: #6d28d9; --dc-soft: rgba(109, 40, 217, 0.08); }
+
+  .domain-card-head {
+    background: var(--dc-color);
+    color: #ffffff;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .domain-card-title {
     font-size: 15px;
     font-weight: 800;
-    color: #0f172a;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
     line-height: 1.2;
   }
-  .layer-tag, .domain-tag {
-    font-size: 10px;
+  .domain-card-badge {
+    font-size: 9px;
     font-weight: 700;
-    color: var(--row-color);
     letter-spacing: 1.5px;
+    background: rgba(255, 255, 255, 0.22);
+    padding: 3px 9px;
+    border-radius: 999px;
     text-transform: uppercase;
-    margin-top: 3px;
-  }
-  .domain-box {
-    border-left: none;
-    border-right: 5px solid var(--row-color);
-    justify-content: flex-end;
-    text-align: right;
+    white-space: nowrap;
   }
 
-  /* Bi-directional connector */
-  .layer-conn {
+  .domain-card-body {
+    padding: 14px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .layer-pill {
+    --lp-color: #2563eb;
+    --lp-soft: rgba(37, 99, 235, 0.09);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--lp-soft);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-left: 4px solid var(--lp-color);
+    border-radius: 8px;
+  }
+  .layer-pill.lp-human  { --lp-color: #2563eb; --lp-soft: rgba(37, 99, 235, 0.09); }
+  .layer-pill.lp-agent  { --lp-color: #0d9488; --lp-soft: rgba(13, 148, 136, 0.09); }
+  .layer-pill.lp-neural { --lp-color: #7c3aed; --lp-soft: rgba(124, 58, 237, 0.09); }
+
+  .layer-pill .lp-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .layer-conn svg { display: block; }
+  .layer-pill .lp-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+  .layer-pill .lp-role {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+  }
 </style>
 </head>
 <body>
@@ -1312,148 +1339,202 @@
             <span>FinOps</span>
           </div>
 
-          <div class="layer-rows">
+          <div class="domain-grid">
 
-            <!-- ROW 1: HUMAN LAYER ↔ AI & DATA ENGINEERING -->
-            <div class="layer-row r-human">
-              <div class="layer-box">
-                <div class="layer-icon">
-                  <svg width="40" height="46" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3"/>
-                    <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
-                    <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3"/>
-                  </svg>
-                </div>
-                <div class="layer-text">
-                  <span class="layer-name">Human Layer</span>
-                  <span class="layer-tag">Human Icon</span>
-                </div>
+            <!-- DOMAIN 1: AI and Data Engineering -->
+            <div class="domain-card dc-aide">
+              <div class="domain-card-head">
+                <span class="domain-card-title">AI &amp; Data Engineering</span>
+                <span class="domain-card-badge">Domain 01</span>
               </div>
-
-              <div class="layer-conn">
-                <svg width="70" height="30" viewBox="0 0 70 30" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <marker id="arrL-h" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                      <path d="M0,5 L10,0 L10,10 Z" fill="#2563eb"/>
-                    </marker>
-                    <marker id="arrR-h" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
-                      <path d="M10,5 L0,0 L0,10 Z" fill="#2563eb"/>
-                    </marker>
-                  </defs>
-                  <line x1="10" y1="15" x2="60" y2="15" stroke="#2563eb" stroke-width="2.5"
-                        marker-start="url(#arrR-h)" marker-end="url(#arrL-h)"/>
-                </svg>
-              </div>
-
-              <div class="domain-box">
-                <div class="domain-text">
-                  <span class="domain-name">AI &amp; Data Engineering</span>
-                  <span class="domain-tag">Domain 01</span>
+              <div class="domain-card-body">
+                <div class="layer-pill lp-human">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Human Layer</span>
+                    <span class="lp-role">Strategy · Design · Oversight</span>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- ROW 2: AGENT LAYER ↔ DATA AND ANALYTICS -->
-            <div class="layer-row r-agent">
-              <div class="layer-box">
-                <div class="layer-icon">
-                  <svg width="40" height="46" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="32" cy="4" r="3" fill="#0d9488"/>
-                    <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3"/>
-                    <circle cx="22" cy="30" r="3" fill="#0d9488"/>
-                    <circle cx="42" cy="30" r="3" fill="#0d9488"/>
-                    <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
-                    <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3" stroke-linecap="round"/>
-                    <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div class="layer-text">
-                  <span class="layer-name">Agent Layer</span>
-                  <span class="layer-tag">Agent Icon</span>
-                </div>
-              </div>
-
-              <div class="layer-conn">
-                <svg width="70" height="30" viewBox="0 0 70 30" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <marker id="arrL-a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                      <path d="M0,5 L10,0 L10,10 Z" fill="#0d9488"/>
-                    </marker>
-                    <marker id="arrR-a" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
-                      <path d="M10,5 L0,0 L0,10 Z" fill="#0d9488"/>
-                    </marker>
-                  </defs>
-                  <line x1="10" y1="15" x2="60" y2="15" stroke="#0d9488" stroke-width="2.5"
-                        marker-start="url(#arrR-a)" marker-end="url(#arrL-a)"/>
-                </svg>
-              </div>
-
-              <div class="domain-box">
-                <div class="domain-text">
-                  <span class="domain-name">Data &amp; Analytics</span>
-                  <span class="domain-tag">Domain 02</span>
+                <div class="layer-pill lp-agent">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
+                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
+                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Agentic Layer</span>
+                    <span class="lp-role">Autonomous Build &amp; Ops</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- ROW 3: NEURAL ENGINE ↔ MODERNISATION -->
-            <div class="layer-row r-neural">
-              <div class="layer-box">
-                <div class="layer-icon">
-                  <svg width="56" height="46" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#7c3aed" stroke-width="1.4" opacity="0.55">
-                      <line x1="18" y1="18" x2="55" y2="14"/>
-                      <line x1="18" y1="18" x2="55" y2="40"/>
-                      <line x1="18" y1="18" x2="55" y2="66"/>
-                      <line x1="18" y1="40" x2="55" y2="14"/>
-                      <line x1="18" y1="40" x2="55" y2="40"/>
-                      <line x1="18" y1="40" x2="55" y2="66"/>
-                      <line x1="18" y1="62" x2="55" y2="14"/>
-                      <line x1="18" y1="62" x2="55" y2="40"/>
-                      <line x1="18" y1="62" x2="55" y2="66"/>
-                      <line x1="55" y1="14" x2="92" y2="28"/>
-                      <line x1="55" y1="14" x2="92" y2="52"/>
-                      <line x1="55" y1="40" x2="92" y2="28"/>
-                      <line x1="55" y1="40" x2="92" y2="52"/>
-                      <line x1="55" y1="66" x2="92" y2="28"/>
-                      <line x1="55" y1="66" x2="92" y2="52"/>
-                    </g>
-                    <circle cx="18" cy="18" r="6" fill="#7c3aed"/>
-                    <circle cx="18" cy="40" r="6" fill="#7c3aed"/>
-                    <circle cx="18" cy="62" r="6" fill="#7c3aed"/>
-                    <circle cx="55" cy="14" r="6" fill="#a78bfa"/>
-                    <circle cx="55" cy="40" r="6" fill="#a78bfa"/>
-                    <circle cx="55" cy="66" r="6" fill="#a78bfa"/>
-                    <circle cx="92" cy="28" r="6" fill="#7c3aed"/>
-                    <circle cx="92" cy="52" r="6" fill="#7c3aed"/>
-                  </svg>
+            <!-- DOMAIN 2: DNA (Data and Analytics) -->
+            <div class="domain-card dc-dna">
+              <div class="domain-card-head">
+                <span class="domain-card-title">DNA · Data &amp; Analytics</span>
+                <span class="domain-card-badge">Domain 02</span>
+              </div>
+              <div class="domain-card-body">
+                <div class="layer-pill lp-human">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Human Layer</span>
+                    <span class="lp-role">Governance · Stewardship</span>
+                  </div>
                 </div>
-                <div class="layer-text">
-                  <span class="layer-name">Neural Engine</span>
-                  <span class="layer-tag">Engine Icon</span>
+
+                <div class="layer-pill lp-agent">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
+                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
+                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Agentic Layer</span>
+                    <span class="lp-role">Pipelines · Quality · Insight</span>
+                  </div>
+                </div>
+
+                <div class="layer-pill lp-neural">
+                  <div class="lp-icon">
+                    <svg width="40" height="34" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="#7c3aed" stroke-width="1.5" opacity="0.55">
+                        <line x1="18" y1="18" x2="55" y2="14"/>
+                        <line x1="18" y1="18" x2="55" y2="40"/>
+                        <line x1="18" y1="18" x2="55" y2="66"/>
+                        <line x1="18" y1="40" x2="55" y2="14"/>
+                        <line x1="18" y1="40" x2="55" y2="40"/>
+                        <line x1="18" y1="40" x2="55" y2="66"/>
+                        <line x1="18" y1="62" x2="55" y2="14"/>
+                        <line x1="18" y1="62" x2="55" y2="40"/>
+                        <line x1="18" y1="62" x2="55" y2="66"/>
+                        <line x1="55" y1="14" x2="92" y2="28"/>
+                        <line x1="55" y1="14" x2="92" y2="52"/>
+                        <line x1="55" y1="40" x2="92" y2="28"/>
+                        <line x1="55" y1="40" x2="92" y2="52"/>
+                        <line x1="55" y1="66" x2="92" y2="28"/>
+                        <line x1="55" y1="66" x2="92" y2="52"/>
+                      </g>
+                      <circle cx="18" cy="18" r="6" fill="#7c3aed"/>
+                      <circle cx="18" cy="40" r="6" fill="#7c3aed"/>
+                      <circle cx="18" cy="62" r="6" fill="#7c3aed"/>
+                      <circle cx="55" cy="14" r="6" fill="#a78bfa"/>
+                      <circle cx="55" cy="40" r="6" fill="#a78bfa"/>
+                      <circle cx="55" cy="66" r="6" fill="#a78bfa"/>
+                      <circle cx="92" cy="28" r="6" fill="#7c3aed"/>
+                      <circle cx="92" cy="52" r="6" fill="#7c3aed"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Neural Engine</span>
+                    <span class="lp-role">Models · Reasoning · Learning</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="layer-conn">
-                <svg width="70" height="30" viewBox="0 0 70 30" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <marker id="arrL-n" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                      <path d="M0,5 L10,0 L10,10 Z" fill="#7c3aed"/>
-                    </marker>
-                    <marker id="arrR-n" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
-                      <path d="M10,5 L0,0 L0,10 Z" fill="#7c3aed"/>
-                    </marker>
-                  </defs>
-                  <line x1="10" y1="15" x2="60" y2="15" stroke="#7c3aed" stroke-width="2.5"
-                        marker-start="url(#arrR-n)" marker-end="url(#arrL-n)"/>
-                </svg>
+            <!-- DOMAIN 3: Modernisation -->
+            <div class="domain-card dc-mod">
+              <div class="domain-card-head">
+                <span class="domain-card-title">Modernisation</span>
+                <span class="domain-card-badge">Domain 03</span>
               </div>
+              <div class="domain-card-body">
+                <div class="layer-pill lp-human">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Human Layer</span>
+                    <span class="lp-role">Assessment · Re-platforming</span>
+                  </div>
+                </div>
 
-              <div class="domain-box">
-                <div class="domain-text">
-                  <span class="domain-name">Modernisation</span>
-                  <span class="domain-tag">Domain 03</span>
+                <div class="layer-pill lp-agent">
+                  <div class="lp-icon">
+                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
+                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
+                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
+                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
+                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
+                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Agentic Layer</span>
+                    <span class="lp-role">Migration · Refactor · Uplift</span>
+                  </div>
+                </div>
+
+                <div class="layer-pill lp-neural">
+                  <div class="lp-icon">
+                    <svg width="40" height="34" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="#7c3aed" stroke-width="1.5" opacity="0.55">
+                        <line x1="18" y1="18" x2="55" y2="14"/>
+                        <line x1="18" y1="18" x2="55" y2="40"/>
+                        <line x1="18" y1="18" x2="55" y2="66"/>
+                        <line x1="18" y1="40" x2="55" y2="14"/>
+                        <line x1="18" y1="40" x2="55" y2="40"/>
+                        <line x1="18" y1="40" x2="55" y2="66"/>
+                        <line x1="18" y1="62" x2="55" y2="14"/>
+                        <line x1="18" y1="62" x2="55" y2="40"/>
+                        <line x1="18" y1="62" x2="55" y2="66"/>
+                        <line x1="55" y1="14" x2="92" y2="28"/>
+                        <line x1="55" y1="14" x2="92" y2="52"/>
+                        <line x1="55" y1="40" x2="92" y2="28"/>
+                        <line x1="55" y1="40" x2="92" y2="52"/>
+                        <line x1="55" y1="66" x2="92" y2="28"/>
+                        <line x1="55" y1="66" x2="92" y2="52"/>
+                      </g>
+                      <circle cx="18" cy="18" r="6" fill="#7c3aed"/>
+                      <circle cx="18" cy="40" r="6" fill="#7c3aed"/>
+                      <circle cx="18" cy="62" r="6" fill="#7c3aed"/>
+                      <circle cx="55" cy="14" r="6" fill="#a78bfa"/>
+                      <circle cx="55" cy="40" r="6" fill="#a78bfa"/>
+                      <circle cx="55" cy="66" r="6" fill="#a78bfa"/>
+                      <circle cx="92" cy="28" r="6" fill="#7c3aed"/>
+                      <circle cx="92" cy="52" r="6" fill="#7c3aed"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="lp-name">Neural Engine</span>
+                    <span class="lp-role">Code Understanding · Translation</span>
+                  </div>
                 </div>
               </div>
             </div>

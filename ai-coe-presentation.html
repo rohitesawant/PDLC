@@ -1268,6 +1268,269 @@
     margin-top: 4px;
     line-height: 1.4;
   }
+
+  /* ============================================
+     Slide 5 — 7 Year Productivity Timeline
+     ============================================ */
+  #slide-5 {
+    justify-content: flex-start;
+    padding: 28px 36px 36px;
+  }
+  #slide-5 .slide-head { margin-bottom: 14px; }
+  #slide-5 .slide-title { font-size: 34px; }
+  #slide-5 .slide-subtitle { font-size: 14px; margin-top: 6px; }
+
+  .timeline-canvas {
+    width: min(1800px, 100%);
+    background: #fbf9ff;
+    border: 1px solid #e6dff0;
+    border-radius: 18px;
+    padding: 28px 30px 30px;
+    box-shadow: 0 18px 44px rgba(167, 139, 250, 0.18);
+    color: #1f2937;
+  }
+
+  /* Legend */
+  .tl-legend {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .tl-legend-title {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-right: 4px;
+  }
+  .tl-lever {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #334155;
+  }
+  .tl-lever-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .tl-lever.l-op  .tl-lever-dot { background: #dbeafe; border-color: #60a5fa; }
+  .tl-lever.l-ap  .tl-lever-dot { background: #ccfbf1; border-color: #2dd4bf; }
+  .tl-lever.l-ab  .tl-lever-dot { background: #ede9fe; border-color: #a78bfa; }
+  .tl-lever.l-sh  .tl-lever-dot { background: #fce7f3; border-color: #f472b6; }
+
+  /* Timeline grid */
+  .tl-grid {
+    display: grid;
+    grid-template-columns: 180px repeat(7, 1fr);
+    grid-template-rows: 44px repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  /* Year headers */
+  .tl-corner { background: transparent; }
+  .tl-year {
+    background: linear-gradient(135deg, #f3e8ff, #dbeafe);
+    border: 1px solid #c4b5fd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #6d28d9;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(167, 139, 250, 0.1);
+  }
+  .tl-year .tl-year-num { font-size: 15px; letter-spacing: 1px; }
+  .tl-year .tl-year-sub {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-top: 1px;
+  }
+
+  /* Lane label */
+  .tl-lane-label {
+    --lane-color: #a78bfa;
+    --lane-soft: rgba(167, 139, 250, 0.1);
+    background: var(--lane-soft);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    border-left: 5px solid var(--lane-color);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+  .tl-lane-label.ln-aie { --lane-color: #a78bfa; --lane-soft: rgba(167, 139, 250, 0.1); }
+  .tl-lane-label.ln-de  { --lane-color: #60a5fa; --lane-soft: rgba(96, 165, 250, 0.1); }
+  .tl-lane-label.ln-dna { --lane-color: #34d399; --lane-soft: rgba(52, 211, 153, 0.1); }
+  .tl-lane-label.ln-mod { --lane-color: #fbbf24; --lane-soft: rgba(251, 191, 36, 0.12); }
+  .tl-lane-label .ll-code {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lane-color);
+  }
+  .tl-lane-label .ll-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+
+  /* Year cell */
+  .tl-cell {
+    --cell-color: #a78bfa;
+    background: #ffffff;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-top: 3px solid var(--cell-color);
+    border-radius: 10px;
+    padding: 8px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(167, 139, 250, 0.08);
+    position: relative;
+    min-height: 96px;
+  }
+  .tl-cell.c-aie { --cell-color: #a78bfa; }
+  .tl-cell.c-de  { --cell-color: #60a5fa; }
+  .tl-cell.c-dna { --cell-color: #34d399; }
+  .tl-cell.c-mod { --cell-color: #fbbf24; }
+
+  /* Merged cell (DE + Mod from Y3) */
+  .tl-cell.c-merged {
+    --cell-color: #818cf8;
+    background: linear-gradient(160deg, #eff6ff 0%, #fef3c7 100%);
+    border: 1px solid #c7d2fe;
+    border-top: 3px solid #818cf8;
+    grid-row: span 2;
+  }
+  .tl-cell.c-merged::before {
+    content: 'DE + MOD · MERGED';
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #6366f1;
+    background: rgba(129, 140, 248, 0.15);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* Levers row inside cell */
+  .tl-levers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 2px;
+  }
+  .tl-pill {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    border: 1px solid;
+  }
+  .tl-pill.p-op { color: #1d4ed8; background: #dbeafe; border-color: #93c5fd; }
+  .tl-pill.p-ap { color: #0f766e; background: #ccfbf1; border-color: #5eead4; }
+  .tl-pill.p-ab { color: #6d28d9; background: #ede9fe; border-color: #c4b5fd; }
+  .tl-pill.p-sh { color: #be185d; background: #fce7f3; border-color: #f9a8d4; }
+
+  /* Percentage */
+  .tl-percent {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    justify-content: center;
+  }
+  .tl-percent .pct-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--cell-color);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+  .tl-percent .pct-sign {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--cell-color);
+  }
+  .tl-cell.c-merged .tl-percent .pct-num,
+  .tl-cell.c-merged .tl-percent .pct-sign {
+    color: #4f46e5;
+  }
+  .tl-progress {
+    height: 4px;
+    background: rgba(15, 23, 42, 0.06);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .tl-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cell-color), rgba(255, 255, 255, 0.6));
+    border-radius: 999px;
+  }
+  .tl-cell.c-merged .tl-progress-bar {
+    background: linear-gradient(90deg, #818cf8, #fbbf24);
+  }
+
+  /* Footer insights */
+  .tl-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .tl-insight {
+    background: #ffffff;
+    border: 1px solid #e6dff0;
+    border-left: 4px solid #a78bfa;
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 8px rgba(167, 139, 250, 0.1);
+  }
+  .tl-insight .ti-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7c3aed;
+  }
+  .tl-insight .ti-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-top: 3px;
+  }
+  .tl-insight .ti-desc {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .tl-insight.ti-merge { border-left-color: #818cf8; }
+  .tl-insight.ti-merge .ti-tag { color: #4f46e5; }
+  .tl-insight.ti-heal { border-left-color: #f472b6; }
+  .tl-insight.ti-heal .ti-tag { color: #be185d; }
 </style>
 </head>
 <body>
@@ -1925,17 +2188,200 @@
   </section>
 
   <!-- ============================================
-       SLIDE 5 — Common Ops Model around a COE
+       SLIDE 5 — 7 Year Productivity Timeline
        ============================================ -->
   <section class="slide" id="slide-5" role="tabpanel">
     <div class="slide-head">
       <div class="pre-title">05 — Implementation</div>
       <h2 class="slide-title">Model Implementation — Realistic</h2>
-      <p class="slide-subtitle">A grounded, phased implementation plan reflecting real constraints, capacity, and sequencing.</p>
+      <p class="slide-subtitle">A seven-year productivity trajectory across four streams. Standard levers ramp in Year 1, AI Build / Execute kicks in Year 2, and Self Heal begins layering from Year 3 — while Data Engineering and Modernisation converge into a single merged stream.</p>
     </div>
-    <div class="content-card">
-      <span class="hint">Content Pending</span>
-      COE operating model, pillars, and governance structure will be detailed here.
+
+    <div class="timeline-canvas">
+
+      <!-- Legend -->
+      <div class="tl-legend">
+        <span class="tl-legend-title">Productivity Levers</span>
+        <span class="tl-lever l-op"><span class="tl-lever-dot"></span>OP · Operational</span>
+        <span class="tl-lever l-ap"><span class="tl-lever-dot"></span>AP · Agentic</span>
+        <span class="tl-lever l-ab"><span class="tl-lever-dot"></span>AB · AI Build / Execute</span>
+        <span class="tl-lever l-sh"><span class="tl-lever-dot"></span>SH · Self Heal</span>
+      </div>
+
+      <!-- Timeline grid -->
+      <div class="tl-grid">
+
+        <!-- Row 1: Year headers -->
+        <div class="tl-corner"></div>
+        <div class="tl-year"><span class="tl-year-num">Year 1</span><span class="tl-year-sub">Ramp</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 2</span><span class="tl-year-sub">Scale</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 3</span><span class="tl-year-sub">Converge</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 4</span><span class="tl-year-sub">Accelerate</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 5</span><span class="tl-year-sub">Expand</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 6</span><span class="tl-year-sub">Mature</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 7</span><span class="tl-year-sub">Autonomous</span></div>
+
+        <!-- Row 2: AI Engineering -->
+        <div class="tl-lane-label ln-aie">
+          <span class="ll-code">Stream A</span>
+          <span class="ll-name">AI Engineering</span>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
+          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">23</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">30</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:36%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">42</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:48%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">52</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:58%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">62</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:70%"></div></div>
+        </div>
+        <div class="tl-cell c-aie">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">70</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:82%"></div></div>
+        </div>
+
+        <!-- Row 3: Data Engineering (only Y1, Y2 separate) -->
+        <div class="tl-lane-label ln-de">
+          <span class="ll-code">Stream B</span>
+          <span class="ll-name">Data Engineering</span>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
+          <div class="tl-percent"><span class="pct-num">5</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:7%"></div></div>
+        </div>
+        <div class="tl-cell c-de">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:30%"></div></div>
+        </div>
+
+        <!-- Merged DE + Mod cells Y3-Y7 (span rows 3 + 4) -->
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">28</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:34%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">40</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:46%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">50</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:56%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">60</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:68%"></div></div>
+        </div>
+        <div class="tl-cell c-merged">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
+          <div class="tl-percent"><span class="pct-num">68</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:80%"></div></div>
+        </div>
+
+        <!-- Row 4: Modernisation (only Y1, Y2 separate) -->
+        <div class="tl-lane-label ln-mod">
+          <span class="ll-code">Stream D</span>
+          <span class="ll-name">Modernisation</span>
+        </div>
+        <div class="tl-cell c-mod">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
+          <div class="tl-percent"><span class="pct-num">3</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:5%"></div></div>
+        </div>
+        <div class="tl-cell c-mod">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">21</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:26%"></div></div>
+        </div>
+
+        <!-- Row 5: DNA (Data & Analytics) -->
+        <div class="tl-lane-label ln-dna">
+          <span class="ll-code">Stream C</span>
+          <span class="ll-name">DNA · Data &amp; Analytics</span>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
+          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">22</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:32%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">40</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:48%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">48</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:56%"></div></div>
+        </div>
+        <div class="tl-cell c-dna">
+          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
+          <div class="tl-percent"><span class="pct-num">55</span><span class="pct-sign">%</span></div>
+          <div class="tl-progress"><div class="tl-progress-bar" style="width:64%"></div></div>
+        </div>
+
+      </div>
+
+      <!-- Insights / footnotes -->
+      <div class="tl-footer">
+        <div class="tl-insight">
+          <span class="ti-tag">Year 1 · Ramp</span>
+          <span class="ti-title">3–5% Standard Lever Baseline</span>
+          <span class="ti-desc">All four streams activate Operational &amp; Agentic Productivity levers to establish a measurable baseline.</span>
+        </div>
+        <div class="tl-insight ti-merge">
+          <span class="ti-tag">Year 3 · Converge</span>
+          <span class="ti-title">DE + Modernisation Merge</span>
+          <span class="ti-desc">Data Engineering and Modernisation consolidate into one stream from Year 3, sharing benefit levers and delivery capacity.</span>
+        </div>
+        <div class="tl-insight ti-heal">
+          <span class="ti-tag">Year 3 → Year 7</span>
+          <span class="ti-title">Self Heal Layers In</span>
+          <span class="ti-desc">AI Engineering and the merged DE + Mod stream progressively add Self Heal, compounding gains toward 70% by Year 7.</span>
+        </div>
+      </div>
     </div>
   </section>
 

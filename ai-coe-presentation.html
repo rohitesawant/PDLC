@@ -446,6 +446,53 @@
   .sol-panel.bolt .sol-feature { background: rgba(167,139,250,0.12); color: #6d28d9; border: 1px solid rgba(167,139,250,0.3); }
   .sol-panel.built .sol-feature { background: rgba(52,211,153,0.12); color: #047857; border: 1px solid rgba(52,211,153,0.3); }
 
+  /* Run Services list */
+  .run-svc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .run-svc-row {
+    --svc-color: #a855f7;
+    --svc-soft: rgba(168, 85, 247, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: var(--svc-soft);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-left: 3px solid var(--svc-color);
+    border-radius: 6px;
+  }
+  .run-svc-row.sc-aie { --svc-color: #a855f7; --svc-soft: rgba(168, 85, 247, 0.08); }
+  .run-svc-row.sc-de  { --svc-color: #0ea5e9; --svc-soft: rgba(14, 165, 233, 0.08); }
+  .run-svc-row.sc-dna { --svc-color: #10b981; --svc-soft: rgba(16, 185, 129, 0.08); }
+  .run-svc-letter {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background: var(--svc-color);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .run-svc-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .run-svc-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+  .run-svc-desc {
+    font-size: 10.5px;
+    color: #64748b;
+    line-height: 1.35;
+  }
+
   /* PDLC Shift Left band */
   .shift-band {
     background: rgba(52, 211, 153, 0.1);
@@ -2180,9 +2227,44 @@
         <div class="stream-row">
           <span class="stream-chip sc-aie">A · AI Engineering</span>
           <span class="stream-chip sc-de">B · Data Engineering</span>
+          <span class="stream-chip sc-dna">C · DNA</span>
         </div>
 
         <div class="sol-divider"></div>
+
+        <!-- RUN SERVICES -->
+        <div class="sol-card">
+          <div class="sol-card-top">
+            <div class="sol-icon">⚙️</div>
+            <div>
+              <div class="sol-card-name">Run Services</div>
+              <div class="sol-card-code">Managed Operate Engagements</div>
+            </div>
+          </div>
+          <div class="run-svc-list">
+            <div class="run-svc-row sc-aie">
+              <span class="run-svc-letter">A</span>
+              <div class="run-svc-text">
+                <span class="run-svc-name">AI Engineering — Run Service</span>
+                <span class="run-svc-desc">Steady-state operate &amp; SLA-backed run for AI &amp; Gen AI workloads.</span>
+              </div>
+            </div>
+            <div class="run-svc-row sc-de">
+              <span class="run-svc-letter">B</span>
+              <div class="run-svc-text">
+                <span class="run-svc-name">Data Engineering — Run Service</span>
+                <span class="run-svc-desc">Pipeline operate, data quality &amp; reliability under managed SLAs.</span>
+              </div>
+            </div>
+            <div class="run-svc-row sc-dna">
+              <span class="run-svc-letter">C</span>
+              <div class="run-svc-text">
+                <span class="run-svc-name">DNA — Run Service</span>
+                <span class="run-svc-desc">Platform, governance &amp; analytics operate for the data &amp; analytics estate.</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- SMART DATA OPS -->
         <div class="sol-card">

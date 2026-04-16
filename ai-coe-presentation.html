@@ -1233,7 +1233,7 @@
   }
 
   /* ============================================
-     Slide 4 — Productivity Hierarchy Tree
+     Slide 4 — Productivity Calculator
      ============================================ */
   #slide-4 {
     justify-content: flex-start;
@@ -1243,219 +1243,78 @@
   #slide-4 .slide-title { font-size: 34px; }
   #slide-4 .slide-subtitle { font-size: 14px; margin-top: 6px; }
 
-  .tree-canvas {
-    width: min(1780px, 100%);
-    background: #fbf9ff;
-    border: 1px solid #e6dff0;
-    border-radius: 18px;
-    padding: 40px 40px 44px;
-    box-shadow: 0 18px 44px rgba(167, 139, 250, 0.18);
-    color: #1f2937;
-  }
-
-  /* Root node area */
-  .tree-root-wrap {
-    display: flex;
-    justify-content: center;
-  }
-
-  .tnode {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    padding: 14px 22px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-    color: #0f172a;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-    position: relative;
-    z-index: 2;
-  }
-  .tnode .tnode-tag {
-    display: block;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #64748b;
-    margin-bottom: 4px;
-  }
-  .tnode .tnode-sub {
-    display: block;
-    font-size: 11px;
-    font-weight: 500;
-    color: #64748b;
-    margin-top: 4px;
-    letter-spacing: 0.2px;
-  }
-
-  /* Root node */
-  .tnode.node-root {
-    background: linear-gradient(135deg, #f3e8ff 0%, #dbeafe 50%, #fce7f3 100%);
-    color: #1e293b;
-    border: 1.5px solid #c4b5fd;
-    padding: 18px 36px;
-    border-radius: 12px;
-    box-shadow: 0 10px 26px rgba(167, 139, 250, 0.25);
-  }
-  .tnode.node-root .tnode-tag { color: #7c3aed; }
-  .tnode.node-root .tnode-title {
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    display: block;
-    background: linear-gradient(135deg, #1e293b, #7c3aed);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .tnode.node-root .tnode-sub { color: #64748b; margin-top: 6px; }
-
-  /* Branch nodes */
-  .org-branches {
+  .calc-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    position: relative;
-    padding-top: 46px;
-  }
-  /* Vertical drop from root */
-  .org-branches::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 22px;
-    background: #94a3b8;
-  }
-  /* Horizontal spanner across all 4 branches */
-  .org-branches::after {
-    content: '';
-    position: absolute;
-    top: 22px;
-    left: 12.5%;
-    right: 12.5%;
-    height: 2px;
-    background: #94a3b8;
+    grid-template-columns: 180px repeat(7, 1fr);
+    gap: 6px;
   }
 
-  .org-branch {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding-top: 22px;
-  }
-  /* Vertical line from horizontal spanner down to branch node */
-  .org-branch::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 22px;
-    background: #94a3b8;
-  }
-
-  .tnode.node-branch {
-    --br-color: #2563eb;
-    border-top: 4px solid var(--br-color);
-    padding: 14px 16px;
-    border-radius: 10px;
-  }
-  .tnode.node-branch .tnode-tag { color: var(--br-color); }
-  .tnode.node-branch .tnode-title {
-    display: block;
-    font-size: 15px;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.2;
-  }
-  .org-branch.b-aie .tnode.node-branch { --br-color: #a855f7; }
-  .org-branch.b-de  .tnode.node-branch { --br-color: #0ea5e9; }
-  .org-branch.b-dna .tnode.node-branch { --br-color: #10b981; }
-  .org-branch.b-mod .tnode.node-branch { --br-color: #f59e0b; }
-
-  /* Leaves grid under each branch */
-  .org-sub {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    position: relative;
-    padding-top: 40px;
-    margin-top: 4px;
-  }
-  .org-sub::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: #94a3b8;
-  }
-  .org-sub::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 25%;
-    right: 25%;
-    height: 2px;
-    background: #94a3b8;
-  }
-
-  .leaf-wrap {
-    position: relative;
-    padding-top: 20px;
-  }
-  .leaf-wrap::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: #94a3b8;
-  }
-
-  .tnode.node-leaf {
-    --lf-color: #334155;
-    --lf-soft: rgba(51, 65, 85, 0.08);
-    background: var(--lf-soft);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-left: 4px solid var(--lf-color);
-    padding: 12px 12px;
+  /* Group header row */
+  .calc-group {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #f3e8ff, #dbeafe);
+    border: 1px solid #c4b5fd;
     border-radius: 8px;
-    text-align: left;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #6d28d9;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
   }
-  .tnode.node-leaf.l-op { --lf-color: #2563eb; --lf-soft: rgba(37, 99, 235, 0.09); }
-  .tnode.node-leaf.l-ag { --lf-color: #0d9488; --lf-soft: rgba(13, 148, 136, 0.09); }
-  .tnode.node-leaf.l-ab { --lf-color: #7c3aed; --lf-soft: rgba(124, 58, 237, 0.09); }
-  .tnode.node-leaf .tnode-tag {
-    display: block;
+  .calc-group .cg-badge {
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--lf-color);
+    background: rgba(124, 58, 237, 0.15);
+    padding: 2px 8px;
+    border-radius: 999px;
     text-transform: uppercase;
-    margin-bottom: 3px;
   }
-  .tnode.node-leaf .tnode-title {
-    display: block;
-    font-size: 12px;
+
+  /* Calculator cell */
+  .calc-cell {
+    background: #ffffff;
+    border: 1px solid rgba(167, 139, 250, 0.18);
+    border-radius: 8px;
+    padding: 5px 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+  }
+
+  /* Lever toggle button */
+  .calc-lever {
+    font-size: 9px;
     font-weight: 800;
-    color: #0f172a;
-    line-height: 1.3;
+    padding: 3px 7px;
+    border-radius: 4px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.3;
+    background: transparent;
+    user-select: none;
+    letter-spacing: 0.3px;
+    line-height: 1;
   }
-  .tnode.node-leaf .tnode-sub {
-    font-size: 10px;
-    color: #64748b;
-    margin-top: 4px;
-    line-height: 1.4;
-  }
+  .calc-lever:hover { opacity: 0.6; }
+  .calc-lever.active { opacity: 1; }
+
+  .calc-lever.l-op { color: #1d4ed8; border-color: #93c5fd; }
+  .calc-lever.l-op.active { background: #dbeafe; }
+  .calc-lever.l-ap { color: #0f766e; border-color: #5eead4; }
+  .calc-lever.l-ap.active { background: #ccfbf1; }
+  .calc-lever.l-ab { color: #6d28d9; border-color: #c4b5fd; }
+  .calc-lever.l-ab.active { background: #ede9fe; }
+  .calc-lever.l-sh { color: #be185d; border-color: #f9a8d4; }
+  .calc-lever.l-sh.active { background: #fce7f3; }
 
   /* ============================================
      Slide 5 — 7 Year Productivity Timeline
@@ -2748,124 +2607,113 @@
   </section>
 
   <!-- ============================================
-       SLIDE 4 — Productivity Hierarchy Tree
+       SLIDE 4 — Productivity Calculator
        ============================================ -->
   <section class="slide" id="slide-4" role="tabpanel">
     <div class="slide-head">
       <div class="pre-title">04 — Productivity</div>
-      <h2 class="slide-title">Productivity Chart — Mapped Benefits</h2>
-      <p class="slide-subtitle">Productivity is mapped across four AI CoE branches, each breaking down into distinct productivity streams that drive measurable uplift.</p>
+      <h2 class="slide-title">Productivity Calculator</h2>
+      <p class="slide-subtitle">Toggle productivity levers across Run and Change services over a seven-year horizon. Click each lever to activate or deactivate it per stream per year.</p>
     </div>
 
-    <div class="tree-canvas">
+    <div class="timeline-canvas">
 
-      <!-- Root: AI CoE -->
-      <div class="tree-root-wrap">
-        <div class="tnode node-root">
-          <span class="tnode-tag">Centre of Excellence</span>
-          <span class="tnode-title">AI CoE</span>
-          <span class="tnode-sub">Productivity · Delivery · Governance</span>
-        </div>
+      <!-- Legend -->
+      <div class="tl-legend">
+        <span class="tl-legend-title">Productivity Levers</span>
+        <span class="tl-lever l-op"><span class="tl-lever-dot"></span>OP · Operational</span>
+        <span class="tl-lever l-ap"><span class="tl-lever-dot"></span>AP · Agentic</span>
+        <span class="tl-lever l-ab"><span class="tl-lever-dot"></span>AB · AI Build / Execute</span>
+        <span class="tl-lever l-sh"><span class="tl-lever-dot"></span>SH · Self Heal</span>
       </div>
 
-      <!-- Four branches -->
-      <div class="org-branches">
+      <div class="calc-grid">
 
-        <!-- BRANCH 1: AI Engineering -->
-        <div class="org-branch b-aie">
-          <div class="tnode node-branch">
-            <span class="tnode-tag">Branch 01</span>
-            <span class="tnode-title">AI Engineering</span>
-          </div>
-          <div class="org-sub">
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-op">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Operational Productivity</span>
-                <span class="tnode-sub">Automation and Process Benefits</span>
-              </div>
-            </div>
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-ag">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Agentic Productivity</span>
-                <span class="tnode-sub">AI Agents as SDLC Accelerators to improve delivery speed</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Year headers -->
+        <div class="tl-corner"></div>
+        <div class="tl-year"><span class="tl-year-num">Year 1</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 2</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 3</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 4</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 5</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 6</span></div>
+        <div class="tl-year"><span class="tl-year-num">Year 7</span></div>
 
-        <!-- BRANCH 2: Data Engineering -->
-        <div class="org-branch b-de">
-          <div class="tnode node-branch">
-            <span class="tnode-tag">Branch 02</span>
-            <span class="tnode-title">Data Engineering</span>
-          </div>
-          <div class="org-sub">
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-op">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Operational Productivity</span>
-                <span class="tnode-sub">Automation and Process Benefits</span>
-              </div>
-            </div>
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-ag">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Agentic Productivity</span>
-                <span class="tnode-sub">AI Agents as SDLC Accelerators to improve delivery speed</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- GROUP: Run Services -->
+        <div class="calc-group"><span class="cg-badge">Group A</span>Run Services</div>
 
-        <!-- BRANCH 3: DNA (Data and Analytics) -->
-        <div class="org-branch b-dna">
-          <div class="tnode node-branch">
-            <span class="tnode-tag">Branch 03</span>
-            <span class="tnode-title">DNA · Data &amp; Analytics</span>
-          </div>
-          <div class="org-sub">
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-op">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Operational Productivity</span>
-                <span class="tnode-sub">Automation and Process Benefits</span>
-              </div>
-            </div>
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-ab">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">AI Build / Execute Productivity</span>
-                <span class="tnode-sub">Autonomous AI Agents to replace SDLC accelerators</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Run — AI Engineering -->
+        <div class="tl-lane-label ln-aie"><span class="ll-code">Run</span><span class="ll-name">AI Engineering</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
 
-        <!-- BRANCH 4: Modernisation (MOD) -->
-        <div class="org-branch b-mod">
-          <div class="tnode node-branch">
-            <span class="tnode-tag">Branch 04</span>
-            <span class="tnode-title">Modernisation (MOD)</span>
-          </div>
-          <div class="org-sub">
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-op">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">Operational Productivity</span>
-                <span class="tnode-sub">Automation and Process Benefits</span>
-              </div>
-            </div>
-            <div class="leaf-wrap">
-              <div class="tnode node-leaf l-ab">
-                <span class="tnode-tag">Productivity Driver</span>
-                <span class="tnode-title">AI Build / Execute Productivity</span>
-                <span class="tnode-sub">Autonomous AI Agents to replace SDLC accelerators</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Run — Data Engineering -->
+        <div class="tl-lane-label ln-de"><span class="ll-code">Run</span><span class="ll-name">Data Engineering</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+
+        <!-- Run — DNA -->
+        <div class="tl-lane-label ln-dna"><span class="ll-code">Run</span><span class="ll-name">DNA</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+
+        <!-- GROUP: Change Services -->
+        <div class="calc-group"><span class="cg-badge">Group B</span>Change Services</div>
+
+        <!-- Change — AI Engineering -->
+        <div class="tl-lane-label ln-aie"><span class="ll-code">Change</span><span class="ll-name">AI Engineering</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+
+        <!-- Change — Data Engineering -->
+        <div class="tl-lane-label ln-de"><span class="ll-code">Change</span><span class="ll-name">Data Engineering</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+
+        <!-- Change — DNA -->
+        <div class="tl-lane-label ln-dna"><span class="ll-code">Change</span><span class="ll-name">DNA</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+
+        <!-- Change — Modernisation -->
+        <div class="tl-lane-label ln-mod"><span class="ll-code">Change</span><span class="ll-name">Modernisation</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
 
       </div>
     </div>
@@ -3471,6 +3319,10 @@
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   switchSlide(current - 1);
     const num = parseInt(e.key, 10);
     if (!isNaN(num) && num >= 1 && num <= TOTAL_SLIDES) switchSlide(num);
+  });
+
+  document.querySelectorAll('.calc-lever').forEach(btn => {
+    btn.addEventListener('click', () => btn.classList.toggle('active'));
   });
 </script>
 

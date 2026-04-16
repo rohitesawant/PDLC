@@ -1321,6 +1321,11 @@
     cursor: not-allowed;
     pointer-events: none;
   }
+  .calc-lever.locked {
+    opacity: 1;
+    cursor: default;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.1);
+  }
 
   .calc-pct {
     width: 100%;
@@ -2662,76 +2667,76 @@
 
         <!-- Run — AI Engineering -->
         <div class="tl-lane-label ln-aie"><span class="ll-code">Run</span><span class="ll-name">AI Engineering</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">4<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-aie" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- Run — Data Engineering -->
         <div class="tl-lane-label ln-de"><span class="ll-code">Run</span><span class="ll-name">Data Engineering</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">5<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="run-de" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-de" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- Run — DNA -->
         <div class="tl-lane-label ln-dna"><span class="ll-code">Run</span><span class="ll-name">DNA</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">4<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="run-dna" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- GROUP: Change Services -->
         <div class="calc-group"><span class="cg-badge">Group B</span>Change Services</div>
 
         <!-- Change — AI Engineering -->
         <div class="tl-lane-label ln-aie"><span class="ll-code">Change</span><span class="ll-name">AI Engineering</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">4<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-aie" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- Change — Data Engineering -->
         <div class="tl-lane-label ln-de"><span class="ll-code">Change</span><span class="ll-name">Data Engineering</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">5<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-de" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- Change — DNA -->
         <div class="tl-lane-label ln-dna"><span class="ll-code">Change</span><span class="ll-name">DNA</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">4<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-dna" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
         <!-- Change — Modernisation -->
         <div class="tl-lane-label ln-mod"><span class="ll-code">Change</span><span class="ll-name">Modernisation</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op active">OP</span><span class="calc-lever l-ap active">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct">3<span class="pct-sign">%</span></span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
-        <div class="calc-cell"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="1"><span class="calc-lever l-op active locked">OP</span><span class="calc-lever l-ap active locked">AP</span><span class="calc-lever l-ab disabled">AB</span><span class="calc-lever l-sh disabled">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="2"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="3"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="4"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="5"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="6"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
+        <div class="calc-cell" data-row="chg-mod" data-year="7"><span class="calc-lever l-op">OP</span><span class="calc-lever l-ap">AP</span><span class="calc-lever l-ab">AB</span><span class="calc-lever l-sh">SH</span><span class="calc-pct"></span></div>
 
       </div>
     </div>
@@ -3339,9 +3344,45 @@
     if (!isNaN(num) && num >= 1 && num <= TOTAL_SLIDES) switchSlide(num);
   });
 
-  document.querySelectorAll('.calc-lever').forEach(btn => {
-    btn.addEventListener('click', () => btn.classList.toggle('active'));
+  // Productivity calculator logic
+  const calcBases = {
+    'run-aie': 4, 'run-de': 5, 'run-dna': 4,
+    'chg-aie': 4, 'chg-de': 5, 'chg-dna': 4, 'chg-mod': 3
+  };
+  const calcRows = Object.keys(calcBases);
+
+  function recalcRow(rowId) {
+    let prev = calcBases[rowId];
+    for (let y = 1; y <= 7; y++) {
+      const cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      if (!cell) continue;
+      const pct = cell.querySelector('.calc-pct');
+      if (y === 1) {
+        pct.innerHTML = prev + '<span class="pct-sign">%</span>';
+        continue;
+      }
+      let increment = 0;
+      if (y >= 2 && y <= 4) {
+        const hasOp = cell.querySelector('.l-op.active');
+        const hasAp = cell.querySelector('.l-ap.active');
+        if (hasOp && hasAp) increment = 7;
+        else if (hasOp) increment = 2;
+      }
+      prev = prev + increment;
+      pct.innerHTML = prev + '<span class="pct-sign">%</span>';
+    }
+  }
+
+  document.querySelectorAll('.calc-lever').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (btn.classList.contains('disabled') || btn.classList.contains('locked')) return;
+      btn.classList.toggle('active');
+      var cell = btn.closest('.calc-cell');
+      if (cell && cell.dataset.row) recalcRow(cell.dataset.row);
+    });
   });
+
+  calcRows.forEach(recalcRow);
 </script>
 
 </body>

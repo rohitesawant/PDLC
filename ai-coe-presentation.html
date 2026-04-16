@@ -521,6 +521,50 @@
     color: #059669;
   }
 
+  /* Accelerator blocks inside AI Accelerated Operating Model */
+  .accel-block {
+    background: rgba(167, 139, 250, 0.06);
+    border: 1px solid rgba(167, 139, 250, 0.18);
+    border-left: 4px solid #a78bfa;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .accel-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .accel-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background: #a78bfa;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .accel-titles { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .accel-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+  .accel-desc {
+    font-size: 10.5px;
+    color: #64748b;
+    line-height: 1.4;
+  }
+  .accel-block .sol-features { padding-left: 32px; }
+
   /* SDLC variant of shift-band */
   .shift-band.sdlc-band {
     background: rgba(167, 139, 250, 0.1);
@@ -2222,7 +2266,7 @@
   <section class="slide" id="slide-2" role="tabpanel">
     <div class="slide-head">
       <div class="pre-title">02 — Revised Thinking</div>
-      <h2 class="slide-title">Day 1 - Solution Interventions by Various Functions</h2>
+      <h2 class="slide-title">Day 1 Solution Interventions</h2>
       <p class="slide-subtitle">Two distinct delivery patterns — layered tooling versus natively engineered intelligence — each serving different streams of the AICOE.</p>
     </div>
 
@@ -2286,41 +2330,50 @@
           AI Accelerators Methodology to power existing process improvements and productivity gains.
         </div>
 
-        <!-- SMART DATA OPS -->
-        <div class="sol-card">
+        <!-- AI Accelerated Operating Model -->
+        <div class="sol-card" style="gap:14px;">
           <div class="sol-card-top">
-            <div class="sol-icon">🧠</div>
+            <div class="sol-icon">⚙️</div>
             <div>
-              <div class="sol-card-name">SMART DATA OPS</div>
-              <div class="sol-card-code">AI-Driven Ops Management</div>
+              <div class="sol-card-name">AI Accelerated Operating Model</div>
+              <div class="sol-card-code">Bolt-On AI Solutions</div>
             </div>
           </div>
-          <div class="sol-card-desc">
-            Automated management of <strong>L1 / L2 support tickets</strong> using AI — reducing manual triage, accelerating resolution, and building institutional knowledge over time.
-          </div>
-          <div class="sol-features">
-            <span class="sol-feature">🔄 Self Curation</span>
-            <span class="sol-feature">🔍 Knowledge Query</span>
-            <span class="sol-feature">🕸️ Ontology-based Relationship Building</span>
-          </div>
-        </div>
 
-        <!-- ETHAN -->
-        <div class="sol-card">
-          <div class="sol-card-top">
-            <div class="sol-icon">🤖</div>
-            <div>
-              <div class="sol-card-name">SDLC.AI — Agent ETHAN</div>
-              <div class="sol-card-code">Accelerator · Quick Fix Agent</div>
+          <div class="run-svc-list">
+            <!-- 1. SMART DATA OPS -->
+            <div class="accel-block">
+              <div class="accel-head">
+                <span class="accel-num">1</span>
+                <div class="accel-titles">
+                  <span class="accel-name">SMART DATA OPS</span>
+                  <span class="accel-desc">Automated management of L1 / L2 support tickets using AI — reducing manual triage, accelerating resolution, and building institutional knowledge over time.</span>
+                </div>
+              </div>
+              <div class="sol-features">
+                <span class="sol-feature">🔄 Self / Aided Curation</span>
+                <span class="sol-feature">🔍 Knowledge Query</span>
+                <span class="sol-feature">🕸️ Ontology Relation</span>
+              </div>
             </div>
-          </div>
-          <div class="sol-card-desc">
-            An AI agent embedded in the software delivery lifecycle to drive <strong>rapid productivity gains</strong> — targeting quick fixes, code remediation, and delivery acceleration without large process overhaul.
-          </div>
-          <div class="sol-features">
-            <span class="sol-feature">⚡ Quick Fix Automation</span>
-            <span class="sol-feature">📈 SDLC Productivity</span>
-            <span class="sol-feature">🔧 Code Remediation</span>
+
+            <!-- 2. SDLC.AI -->
+            <div class="accel-block">
+              <div class="accel-head">
+                <span class="accel-num">2</span>
+                <div class="accel-titles">
+                  <span class="accel-name">SDLC.AI</span>
+                  <span class="accel-desc">AI agents embedded in the software delivery lifecycle to drive rapid productivity gains — targeting quick fixes, code remediation, and delivery acceleration without large process overhaul.</span>
+                </div>
+              </div>
+              <div class="sol-features">
+                <span class="sol-feature">🔗 Lineage</span>
+                <span class="sol-feature">📋 Requirements</span>
+                <span class="sol-feature">💻 Code Build</span>
+                <span class="sol-feature">🧪 Test</span>
+                <span class="sol-feature">🚀 Deploy</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3379,7 +3432,7 @@
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-2"
           data-slide="2" onclick="switchSlide(2)">
     <span class="tab-num">02</span>
-    Day 1 - Solution Interventions by Various Functions
+    Day 1 Solution Interventions
   </button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-3"
           data-slide="3" onclick="switchSlide(3)">

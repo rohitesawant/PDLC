@@ -521,6 +521,19 @@
     color: #059669;
   }
 
+  /* SDLC variant of shift-band */
+  .shift-band.sdlc-band {
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px dashed rgba(167, 139, 250, 0.4);
+    color: #6d28d9;
+    font-weight: 500;
+  }
+  .shift-band .tag.sdlc-tag {
+    background: rgba(167, 139, 250, 0.2);
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    color: #7c3aed;
+  }
+
   /* Persona row */
   .persona-row {
     display: grid;
@@ -2265,6 +2278,12 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- SDLC Accelerators band -->
+        <div class="shift-band sdlc-band">
+          <span class="tag sdlc-tag">SDLC</span>
+          AI Accelerators Methodology to power existing process improvements and productivity gains.
         </div>
 
         <!-- SMART DATA OPS -->

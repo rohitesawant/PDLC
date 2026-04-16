@@ -1047,6 +1047,84 @@
     background: #94a3b8;
   }
 
+  /* Stacked layers inside the middle block (Tab 3) */
+  .stack-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stack-layer {
+    --sl-color: #a78bfa;
+    --sl-soft: rgba(167, 139, 250, 0.08);
+    background: #ffffff;
+    border: 1px solid #e6dff0;
+    border-left: 5px solid var(--sl-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(167, 139, 250, 0.08);
+  }
+  .stack-layer.sl-tech    { --sl-color: #60a5fa; --sl-soft: rgba(96, 165, 250, 0.08); }
+  .stack-layer.sl-services{ --sl-color: #34d399; --sl-soft: rgba(52, 211, 153, 0.08); }
+  .stack-layer.sl-actions { --sl-color: #f472b6; --sl-soft: rgba(244, 114, 182, 0.08); }
+
+  .stack-layer-head {
+    background: var(--sl-color);
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stack-layer-head .slh-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .stack-layer-body {
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .stack-item {
+    flex: 1;
+    background: var(--sl-soft);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stack-item .si-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+  .stack-item .si-desc {
+    font-size: 10.5px;
+    color: #64748b;
+    line-height: 1.45;
+  }
+  .stack-item .si-tag {
+    display: inline-flex;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sl-color);
+    margin-bottom: 2px;
+  }
+
   /* Domains grid */
   .domain-grid {
     display: grid;
@@ -2525,9 +2603,9 @@
           </div>
         </div>
 
-        <!-- MIDDLE: SMART DATA OPS envelope -->
+        <!-- MIDDLE: Product Build Operating Model -->
         <div class="smart-envelope">
-          <div class="smart-envelope-label">SMART DATA OPS</div>
+          <div class="smart-envelope-label">Product Build Operating Model</div>
           <div class="smart-envelope-sub">
             <span>Work Management</span><span class="dot"></span>
             <span>Incident Management</span><span class="dot"></span>
@@ -2536,202 +2614,68 @@
             <span>L1 · L2 · L3 · L4 Tickets</span>
           </div>
 
-          <div class="domain-grid">
+          <div class="stack-layers">
 
-            <!-- DOMAIN 1: AI and Data Engineering -->
-            <div class="domain-card dc-aide">
-              <div class="domain-card-head">
-                <span class="domain-card-title">AI &amp; Data Engineering</span>
-                <span class="domain-card-badge">Domain 01</span>
+            <!-- TOP LAYER: AI Actions -->
+            <div class="stack-layer sl-actions">
+              <div class="stack-layer-head">
+                <span>AI Actions</span>
+                <span class="slh-badge">Top Layer</span>
               </div>
-              <div class="domain-card-body">
-                <div class="layer-pill lp-human">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
-                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Human Layer</span>
-                    <span class="lp-role">Strategy · Design · Oversight</span>
-                  </div>
+              <div class="stack-layer-body">
+                <div class="stack-item">
+                  <span class="si-tag">Mode</span>
+                  <span class="si-name">Autonomous</span>
+                  <span class="si-desc">Agent Operating Systems with capabilities to detect anomalies, spool workflows and fix Run Challenges.</span>
                 </div>
-
-                <div class="layer-pill lp-agent">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
-                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
-                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
-                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
-                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
-                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Agentic Layer</span>
-                    <span class="lp-role">Autonomous Build &amp; Ops</span>
-                  </div>
+                <div class="stack-item">
+                  <span class="si-tag">Mode</span>
+                  <span class="si-name">Triggered</span>
+                  <span class="si-desc">Event Driven or Human Triggered Change and Build services for Minor fixes and new build.</span>
                 </div>
               </div>
             </div>
 
-            <!-- DOMAIN 2: DNA (Data and Analytics) -->
-            <div class="domain-card dc-dna">
-              <div class="domain-card-head">
-                <span class="domain-card-title">DNA · Data &amp; Analytics</span>
-                <span class="domain-card-badge">Domain 02</span>
+            <!-- MIDDLE LAYER: COE Services -->
+            <div class="stack-layer sl-services">
+              <div class="stack-layer-head">
+                <span>COE Services</span>
+                <span class="slh-badge">Service Layer</span>
               </div>
-              <div class="domain-card-body">
-                <div class="layer-pill lp-human">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
-                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Human Layer</span>
-                    <span class="lp-role">Governance · Stewardship</span>
-                  </div>
+              <div class="stack-layer-body">
+                <div class="stack-item">
+                  <span class="si-name">Run Services</span>
+                  <span class="si-desc">Steady-state operate &amp; SLA-backed managed run.</span>
                 </div>
-
-                <div class="layer-pill lp-agent">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
-                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
-                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
-                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
-                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
-                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Agentic Layer</span>
-                    <span class="lp-role">Pipelines · Quality · Insight</span>
-                  </div>
+                <div class="stack-item">
+                  <span class="si-name">Change Services</span>
+                  <span class="si-desc">PDLC-native build, change &amp; evolution.</span>
                 </div>
-
-                <div class="layer-pill lp-neural">
-                  <div class="lp-icon">
-                    <svg width="40" height="34" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
-                      <g stroke="#7c3aed" stroke-width="1.5" opacity="0.55">
-                        <line x1="18" y1="18" x2="55" y2="14"/>
-                        <line x1="18" y1="18" x2="55" y2="40"/>
-                        <line x1="18" y1="18" x2="55" y2="66"/>
-                        <line x1="18" y1="40" x2="55" y2="14"/>
-                        <line x1="18" y1="40" x2="55" y2="40"/>
-                        <line x1="18" y1="40" x2="55" y2="66"/>
-                        <line x1="18" y1="62" x2="55" y2="14"/>
-                        <line x1="18" y1="62" x2="55" y2="40"/>
-                        <line x1="18" y1="62" x2="55" y2="66"/>
-                        <line x1="55" y1="14" x2="92" y2="28"/>
-                        <line x1="55" y1="14" x2="92" y2="52"/>
-                        <line x1="55" y1="40" x2="92" y2="28"/>
-                        <line x1="55" y1="40" x2="92" y2="52"/>
-                        <line x1="55" y1="66" x2="92" y2="28"/>
-                        <line x1="55" y1="66" x2="92" y2="52"/>
-                      </g>
-                      <circle cx="18" cy="18" r="6" fill="#7c3aed"/>
-                      <circle cx="18" cy="40" r="6" fill="#7c3aed"/>
-                      <circle cx="18" cy="62" r="6" fill="#7c3aed"/>
-                      <circle cx="55" cy="14" r="6" fill="#a78bfa"/>
-                      <circle cx="55" cy="40" r="6" fill="#a78bfa"/>
-                      <circle cx="55" cy="66" r="6" fill="#a78bfa"/>
-                      <circle cx="92" cy="28" r="6" fill="#7c3aed"/>
-                      <circle cx="92" cy="52" r="6" fill="#7c3aed"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Neural Engine</span>
-                    <span class="lp-role">Models · Reasoning · Learning</span>
-                  </div>
+                <div class="stack-item">
+                  <span class="si-name">Build Services</span>
+                  <span class="si-desc">New product &amp; platform construction.</span>
                 </div>
               </div>
             </div>
 
-            <!-- DOMAIN 3: Modernisation -->
-            <div class="domain-card dc-mod">
-              <div class="domain-card-head">
-                <span class="domain-card-title">Modernisation</span>
-                <span class="domain-card-badge">Domain 03</span>
+            <!-- BASE LAYER: Technical Components -->
+            <div class="stack-layer sl-tech">
+              <div class="stack-layer-head">
+                <span>Technical Components</span>
+                <span class="slh-badge">Base Layer</span>
               </div>
-              <div class="domain-card-body">
-                <div class="layer-pill lp-human">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="32" cy="16" r="11" fill="none" stroke="#2563eb" stroke-width="3.5"/>
-                      <path d="M14 72 Q14 42 32 42 Q50 42 50 72" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="32" y1="42" x2="32" y2="68" stroke="#2563eb" stroke-width="3.5"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Human Layer</span>
-                    <span class="lp-role">Assessment · Re-platforming</span>
-                  </div>
+              <div class="stack-layer-body">
+                <div class="stack-item">
+                  <span class="si-name">Agentic Swarms</span>
+                  <span class="si-desc">Coordinated multi-agent orchestration for complex tasks.</span>
                 </div>
-
-                <div class="layer-pill lp-agent">
-                  <div class="lp-icon">
-                    <svg width="28" height="34" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="32" y1="4" x2="32" y2="14" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <circle cx="32" cy="4" r="3.5" fill="#0d9488"/>
-                      <rect x="12" y="14" width="40" height="40" rx="8" ry="8" fill="none" stroke="#0d9488" stroke-width="3.5"/>
-                      <circle cx="22" cy="30" r="3.5" fill="#0d9488"/>
-                      <circle cx="42" cy="30" r="3.5" fill="#0d9488"/>
-                      <rect x="20" y="40" width="24" height="3" rx="1" fill="#0d9488"/>
-                      <line x1="20" y1="54" x2="20" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                      <line x1="44" y1="54" x2="44" y2="68" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Agentic Layer</span>
-                    <span class="lp-role">Migration · Refactor · Uplift</span>
-                  </div>
+                <div class="stack-item">
+                  <span class="si-name">Human Action</span>
+                  <span class="si-desc">Human-in-the-loop oversight, validation &amp; controls.</span>
                 </div>
-
-                <div class="layer-pill lp-neural">
-                  <div class="lp-icon">
-                    <svg width="40" height="34" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg">
-                      <g stroke="#7c3aed" stroke-width="1.5" opacity="0.55">
-                        <line x1="18" y1="18" x2="55" y2="14"/>
-                        <line x1="18" y1="18" x2="55" y2="40"/>
-                        <line x1="18" y1="18" x2="55" y2="66"/>
-                        <line x1="18" y1="40" x2="55" y2="14"/>
-                        <line x1="18" y1="40" x2="55" y2="40"/>
-                        <line x1="18" y1="40" x2="55" y2="66"/>
-                        <line x1="18" y1="62" x2="55" y2="14"/>
-                        <line x1="18" y1="62" x2="55" y2="40"/>
-                        <line x1="18" y1="62" x2="55" y2="66"/>
-                        <line x1="55" y1="14" x2="92" y2="28"/>
-                        <line x1="55" y1="14" x2="92" y2="52"/>
-                        <line x1="55" y1="40" x2="92" y2="28"/>
-                        <line x1="55" y1="40" x2="92" y2="52"/>
-                        <line x1="55" y1="66" x2="92" y2="28"/>
-                        <line x1="55" y1="66" x2="92" y2="52"/>
-                      </g>
-                      <circle cx="18" cy="18" r="6" fill="#7c3aed"/>
-                      <circle cx="18" cy="40" r="6" fill="#7c3aed"/>
-                      <circle cx="18" cy="62" r="6" fill="#7c3aed"/>
-                      <circle cx="55" cy="14" r="6" fill="#a78bfa"/>
-                      <circle cx="55" cy="40" r="6" fill="#a78bfa"/>
-                      <circle cx="55" cy="66" r="6" fill="#a78bfa"/>
-                      <circle cx="92" cy="28" r="6" fill="#7c3aed"/>
-                      <circle cx="92" cy="52" r="6" fill="#7c3aed"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="lp-name">Neural Engine</span>
-                    <span class="lp-role">Code Understanding · Translation</span>
-                  </div>
+                <div class="stack-item">
+                  <span class="si-name">Neural Engine</span>
+                  <span class="si-desc">LLM-powered reasoning, code generation &amp; learning.</span>
                 </div>
               </div>
             </div>

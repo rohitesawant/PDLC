@@ -1064,8 +1064,9 @@
     box-shadow: 0 3px 10px rgba(167, 139, 250, 0.08);
   }
   .stack-layer.sl-tech    { --sl-color: #60a5fa; --sl-soft: rgba(96, 165, 250, 0.08); }
-  .stack-layer.sl-services{ --sl-color: #34d399; --sl-soft: rgba(52, 211, 153, 0.08); }
   .stack-layer.sl-actions { --sl-color: #f472b6; --sl-soft: rgba(244, 114, 182, 0.08); }
+  .stack-layer.sl-services{ --sl-color: #34d399; --sl-soft: rgba(52, 211, 153, 0.08); }
+  .stack-layer.sl-valid   { --sl-color: #f59e0b; --sl-soft: rgba(245, 158, 11, 0.08); }
 
   .stack-layer-head {
     background: var(--sl-color);
@@ -2616,27 +2617,32 @@
 
           <div class="stack-layers">
 
-            <!-- TOP LAYER: AI Actions -->
-            <div class="stack-layer sl-actions">
+            <!-- LAYER 4 (TOP): Validation Layer -->
+            <div class="stack-layer sl-valid">
               <div class="stack-layer-head">
-                <span>AI Actions</span>
+                <span>Validation Layer</span>
                 <span class="slh-badge">Top Layer</span>
               </div>
               <div class="stack-layer-body">
                 <div class="stack-item">
-                  <span class="si-tag">Mode</span>
-                  <span class="si-name">Autonomous</span>
-                  <span class="si-desc">Agent Operating Systems with capabilities to detect anomalies, spool workflows and fix Run Challenges.</span>
+                  <span class="si-name">Content</span>
                 </div>
                 <div class="stack-item">
-                  <span class="si-tag">Mode</span>
-                  <span class="si-name">Triggered</span>
-                  <span class="si-desc">Event Driven or Human Triggered Change and Build services for Minor fixes and new build.</span>
+                  <span class="si-name">Boundaries</span>
+                </div>
+                <div class="stack-item">
+                  <span class="si-name">Validation</span>
+                </div>
+                <div class="stack-item">
+                  <span class="si-name">Observability</span>
+                </div>
+                <div class="stack-item">
+                  <span class="si-name">Evaluation</span>
                 </div>
               </div>
             </div>
 
-            <!-- MIDDLE LAYER: COE Services -->
+            <!-- LAYER 3: COE Services -->
             <div class="stack-layer sl-services">
               <div class="stack-layer-head">
                 <span>COE Services</span>
@@ -2658,7 +2664,27 @@
               </div>
             </div>
 
-            <!-- BASE LAYER: Technical Components -->
+            <!-- LAYER 2: AI Actions -->
+            <div class="stack-layer sl-actions">
+              <div class="stack-layer-head">
+                <span>AI Actions</span>
+                <span class="slh-badge">Action Layer</span>
+              </div>
+              <div class="stack-layer-body">
+                <div class="stack-item">
+                  <span class="si-tag">Mode</span>
+                  <span class="si-name">Autonomous</span>
+                  <span class="si-desc">Agent Operating Systems with capabilities to detect anomalies, spool workflows and fix Run Challenges.</span>
+                </div>
+                <div class="stack-item">
+                  <span class="si-tag">Mode</span>
+                  <span class="si-name">Triggered</span>
+                  <span class="si-desc">Event Driven or Human Triggered Change and Build services for Minor fixes and new build.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- LAYER 1 (BASE): Technical Components -->
             <div class="stack-layer sl-tech">
               <div class="stack-layer-head">
                 <span>Technical Components</span>

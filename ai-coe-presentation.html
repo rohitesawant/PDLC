@@ -3351,20 +3351,38 @@
   };
   const calcRows = Object.keys(calcBases);
 
+  // Initialize OP defaults: active in Y2-4, disabled in Y5-7
+  calcRows.forEach(function(rowId) {
+    for (var y = 2; y <= 4; y++) {
+      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      if (cell) {
+        var op = cell.querySelector('.l-op');
+        if (op) op.classList.add('active');
+      }
+    }
+    for (var y = 5; y <= 7; y++) {
+      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      if (cell) {
+        var op = cell.querySelector('.l-op');
+        if (op) { op.classList.add('disabled'); op.classList.remove('active'); }
+      }
+    }
+  });
+
   function recalcRow(rowId) {
-    let prev = calcBases[rowId];
-    for (let y = 1; y <= 7; y++) {
-      const cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+    var prev = calcBases[rowId];
+    for (var y = 1; y <= 7; y++) {
+      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
       if (!cell) continue;
-      const pct = cell.querySelector('.calc-pct');
+      var pct = cell.querySelector('.calc-pct');
       if (y === 1) {
         pct.innerHTML = prev + '<span class="pct-sign">%</span>';
         continue;
       }
-      let increment = 0;
+      var increment = 0;
       if (y >= 2 && y <= 4) {
-        const hasOp = cell.querySelector('.l-op.active');
-        const hasAp = cell.querySelector('.l-ap.active');
+        var hasOp = cell.querySelector('.l-op.active');
+        var hasAp = cell.querySelector('.l-ap.active');
         if (hasOp && hasAp) increment = 7;
         else if (hasOp) increment = 2;
       }

@@ -3389,6 +3389,16 @@
           btn.classList.remove('disabled');
           continue;
         }
+        // SH is freely available from Year 3, disabled in Y1-2
+        if (cls === 'l-sh' && y <= 2) {
+          btn.classList.add('disabled');
+          btn.classList.remove('active');
+          continue;
+        }
+        if (cls === 'l-sh' && y === 3) {
+          btn.classList.remove('disabled');
+          continue;
+        }
         var prevActive = prevBtn && (prevBtn.classList.contains('active') || prevBtn.classList.contains('locked'));
         if (!prevActive) {
           btn.classList.add('disabled');
@@ -3423,9 +3433,8 @@
       // AB: +6% in Y2-4, +4% in Y5-7
       if (hasAb && y >= 2 && y <= 4) increment += 6;
       if (hasAb && y >= 5) increment += 4;
-      // SH: +8% in Y2-4, +10% in Y5-7
-      if (hasSh && y >= 2 && y <= 4) increment += 8;
-      if (hasSh && y >= 5) increment += 10;
+      // SH: +7% from Y3 onwards
+      if (hasSh && y >= 3) increment += 7;
       prev = prev + increment;
       pct.innerHTML = prev + '<span class="pct-sign">%</span>';
     }

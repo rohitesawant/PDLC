@@ -3345,23 +3345,27 @@
   });
 
   // Productivity calculator logic
-  const calcBases = {
+  var calcBases = {
     'run-aie': 4, 'run-de': 5, 'run-dna': 4,
     'chg-aie': 4, 'chg-de': 5, 'chg-dna': 4, 'chg-mod': 3
   };
-  const calcRows = Object.keys(calcBases);
+  var calcRows = Object.keys(calcBases);
 
-  // Initialize OP defaults: active in Y2-4, disabled in Y5-7
+  function getCell(rowId, y) {
+    return document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+  }
+
+  // Initialize OP: locked+active in Y2-4, disabled in Y5-7
   calcRows.forEach(function(rowId) {
     for (var y = 2; y <= 4; y++) {
-      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      var cell = getCell(rowId, y);
       if (cell) {
         var op = cell.querySelector('.l-op');
-        if (op) op.classList.add('active');
+        if (op) { op.classList.add('active', 'locked'); }
       }
     }
     for (var y = 5; y <= 7; y++) {
-      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      var cell = getCell(rowId, y);
       if (cell) {
         var op = cell.querySelector('.l-op');
         if (op) { op.classList.add('disabled'); op.classList.remove('active'); }
@@ -3369,10 +3373,32 @@
     }
   });
 
+  // Enforce: AP/AB/SH only selectable if same lever is active in prior year
+  function enforceChaining(rowId) {
+    ['l-ap', 'l-ab', 'l-sh'].forEach(function(cls) {
+      for (var y = 2; y <= 7; y++) {
+        var cell = getCell(rowId, y);
+        var prevCell = getCell(rowId, y - 1);
+        if (!cell || !prevCell) continue;
+        var btn = cell.querySelector('.' + cls);
+        var prevBtn = prevCell.querySelector('.' + cls);
+        if (!btn) continue;
+        var prevActive = prevBtn && (prevBtn.classList.contains('active') || prevBtn.classList.contains('locked'));
+        if (!prevActive) {
+          btn.classList.add('disabled');
+          btn.classList.remove('active');
+        } else {
+          btn.classList.remove('disabled');
+        }
+      }
+    });
+  }
+
   function recalcRow(rowId) {
+    enforceChaining(rowId);
     var prev = calcBases[rowId];
     for (var y = 1; y <= 7; y++) {
-      var cell = document.querySelector('.calc-cell[data-row="' + rowId + '"][data-year="' + y + '"]');
+      var cell = getCell(rowId, y);
       if (!cell) continue;
       var pct = cell.querySelector('.calc-pct');
       if (y === 1) {
@@ -3380,12 +3406,16 @@
         continue;
       }
       var increment = 0;
-      if (y >= 2 && y <= 4) {
-        var hasOp = cell.querySelector('.l-op.active');
-        var hasAp = cell.querySelector('.l-ap.active');
-        if (hasOp && hasAp) increment = 7;
-        else if (hasOp) increment = 2;
-      }
+      var hasOp = cell.querySelector('.l-op.active') || cell.querySelector('.l-op.locked');
+      var hasAp = cell.querySelector('.l-ap.active');
+      var hasAb = cell.querySelector('.l-ab.active');
+      // OP: +2% in Y2-4 only
+      if (y >= 2 && y <= 4 && hasOp) increment += 2;
+      // AP: +5% extra on top of OP in Y2-4 (total OP+AP = 7)
+      if (y >= 2 && y <= 4 && hasAp) increment += 5;
+      // AB: +10% in Y2-4, +5% in Y5-7
+      if (hasAb && y >= 2 && y <= 4) increment += 10;
+      if (hasAb && y >= 5) increment += 5;
       prev = prev + increment;
       pct.innerHTML = prev + '<span class="pct-sign">%</span>';
     }

@@ -3430,11 +3430,12 @@
       if (y >= 2 && y <= 4 && hasOp) increment += 2;
       // AP: +3% in Y2-4
       if (y >= 2 && y <= 4 && hasAp) increment += 3;
-      // AB: +5% in Y2-4, +4% in Y5-7
+      // AB: +5% in Y2-4, +1% in Y5-7
       if (hasAb && y >= 2 && y <= 4) increment += 5;
-      if (hasAb && y >= 5) increment += 4;
-      // SH: +7% from Y3 onwards
-      if (hasSh && y >= 3) increment += 7;
+      if (hasAb && y >= 5) increment += 1;
+      // SH: +7% in Y3-4, +2% in Y5-7
+      if (hasSh && y >= 3 && y <= 4) increment += 7;
+      if (hasSh && y >= 5) increment += 2;
       prev = prev + increment;
       pct.innerHTML = prev + '<span class="pct-sign">%</span>';
     }

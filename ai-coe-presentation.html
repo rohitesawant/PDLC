@@ -1275,6 +1275,36 @@
     text-transform: uppercase;
   }
 
+  /* Download button */
+  .calc-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .calc-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #7c3aed, #6366f1);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    transition: all 0.2s;
+  }
+  .calc-download-btn:hover {
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+    transform: translateY(-1px);
+  }
+  .calc-download-btn svg { flex-shrink: 0; }
+
   /* Calculator cell */
   .calc-cell {
     background: #ffffff;
@@ -2641,13 +2671,21 @@
 
     <div class="timeline-canvas">
 
-      <!-- Legend -->
-      <div class="tl-legend">
-        <span class="tl-legend-title">Productivity Levers</span>
-        <span class="tl-lever l-op"><span class="tl-lever-dot"></span>OP · Operational</span>
-        <span class="tl-lever l-ap"><span class="tl-lever-dot"></span>AP · Agentic</span>
-        <span class="tl-lever l-ab"><span class="tl-lever-dot"></span>AB · AI Build / Execute</span>
-        <span class="tl-lever l-sh"><span class="tl-lever-dot"></span>SH · Self Heal</span>
+      <!-- Header row: legend + download -->
+      <div class="calc-header-row">
+        <div class="tl-legend" style="margin-bottom:0;">
+          <span class="tl-legend-title">Productivity Levers</span>
+          <span class="tl-lever l-op"><span class="tl-lever-dot"></span>OP · Operational</span>
+          <span class="tl-lever l-ap"><span class="tl-lever-dot"></span>AP · Agentic</span>
+          <span class="tl-lever l-ab"><span class="tl-lever-dot"></span>AB · AI Build / Execute</span>
+          <span class="tl-lever l-sh"><span class="tl-lever-dot"></span>SH · Self Heal</span>
+        </div>
+        <button class="calc-download-btn" onclick="downloadCalcExcel()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M8 10L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download
+        </button>
       </div>
 
       <div class="calc-grid">
@@ -3296,7 +3334,7 @@
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-4"
           data-slide="4" onclick="switchSlide(4)">
     <span class="tab-num">04</span>
-    Productivity Chart — Mapped Benefits
+    Productivity Calculator
   </button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-5"
           data-slide="5" onclick="switchSlide(5)">
@@ -3451,6 +3489,59 @@
   });
 
   calcRows.forEach(recalcRow);
+
+  // Download calculator to Excel (CSV)
+  function downloadCalcExcel() {
+    var rowLabels = {
+      'run-aie': 'Run - AI Engineering',
+      'run-de': 'Run - Data Engineering',
+      'run-dna': 'Run - DNA',
+      'chg-aie': 'Change - AI Engineering',
+      'chg-de': 'Change - Data Engineering',
+      'chg-dna': 'Change - DNA',
+      'chg-mod': 'Change - Modernisation'
+    };
+    var rows = [];
+    rows.push(['Stream', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5', 'Year 6', 'Year 7']);
+    rows.push(['', '', '', '', '', '', '', '']);
+    rows.push(['', 'Levers Active', '', '', '', '', '', '']);
+
+    calcRows.forEach(function(rowId) {
+      var pctRow = [rowLabels[rowId]];
+      var leverRow = ['  Levers'];
+      for (var y = 1; y <= 7; y++) {
+        var cell = getCell(rowId, y);
+        if (!cell) { pctRow.push(''); leverRow.push(''); continue; }
+        var pct = cell.querySelector('.calc-pct');
+        pctRow.push(pct ? pct.textContent.trim() : '');
+        var levers = [];
+        cell.querySelectorAll('.calc-lever.active, .calc-lever.locked').forEach(function(l) {
+          levers.push(l.textContent.trim());
+        });
+        leverRow.push(levers.join(' + ') || '-');
+      }
+      rows.push(pctRow);
+      rows.push(leverRow);
+    });
+
+    var csv = rows.map(function(r) {
+      return r.map(function(c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
+    }).join('\r\n');
+
+    var now = new Date();
+    var pad = function(n, d) { return String(n).padStart(d || 2, '0'); };
+    var filename = 'QBE_Prod_Calculator_'
+      + pad(now.getMonth() + 1) + pad(now.getDate()) + String(now.getFullYear()).slice(-2)
+      + '_' + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds())
+      + '.csv';
+
+    var blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
 </script>
 
 </body>

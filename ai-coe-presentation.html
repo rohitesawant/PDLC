@@ -1632,6 +1632,170 @@
   .tl-insight.ti-heal { border-left-color: #f472b6; }
   .tl-insight.ti-heal .ti-tag { color: #be185d; }
 
+  /* Accelerator cards (Slide 5 redo) */
+  .accel-canvas {
+    width: min(1780px, 100%);
+    background: #fbf9ff;
+    border: 1px solid #e6dff0;
+    border-radius: 18px;
+    padding: 28px 32px 30px;
+    box-shadow: 0 18px 44px rgba(167, 139, 250, 0.18);
+    color: #1f2937;
+  }
+  .accel-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .accel-col {
+    --ac-color: #a78bfa;
+    --ac-soft: rgba(167, 139, 250, 0.1);
+    background: #ffffff;
+    border: 1px solid #e6dff0;
+    border-top: 5px solid var(--ac-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(167, 139, 250, 0.08);
+    overflow: hidden;
+  }
+  .accel-col.ac-op  { --ac-color: #2563eb; --ac-soft: rgba(37, 99, 235, 0.08); }
+  .accel-col.ac-ap  { --ac-color: #0d9488; --ac-soft: rgba(13, 148, 136, 0.08); }
+  .accel-col.ac-ab  { --ac-color: #7c3aed; --ac-soft: rgba(124, 58, 237, 0.08); }
+  .accel-col.ac-sh  { --ac-color: #e11d48; --ac-soft: rgba(225, 29, 72, 0.08); }
+
+  .accel-col-head {
+    background: var(--ac-color);
+    color: #ffffff;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .accel-col-code {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .accel-col-name {
+    display: block;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+  }
+
+  .accel-col-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+  }
+
+  .accel-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .accel-section-head {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ac-color);
+    padding-bottom: 4px;
+    border-bottom: 1px dashed rgba(15, 23, 42, 0.1);
+  }
+  .accel-section-body {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.5;
+  }
+  .accel-tool-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .accel-tool-list li {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.4;
+    padding-left: 14px;
+    position: relative;
+  }
+  .accel-tool-list li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ac-color);
+    opacity: 0.7;
+  }
+
+  .accel-benefit-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .accel-bar-track {
+    flex: 1;
+    height: 8px;
+    background: rgba(15, 23, 42, 0.05);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .accel-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ac-color), rgba(255, 255, 255, 0.5));
+    border-radius: 999px;
+  }
+  .accel-bar-pct {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--ac-color);
+    white-space: nowrap;
+  }
+  .accel-bar-pct .pct-sign { font-size: 10px; }
+
+  .accel-range-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .accel-range-item {
+    background: var(--ac-soft);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    border-radius: 6px;
+    padding: 6px 10px;
+    flex: 1;
+    text-align: center;
+  }
+  .accel-range-label {
+    display: block;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+  .accel-range-val {
+    display: block;
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--ac-color);
+    margin-top: 2px;
+  }
+  .accel-range-val .pct-sign { font-size: 10px; }
+
   /* ============================================
      Slide 6 — SDLC vs PDLC AMS Comparison
      ============================================ */
@@ -2781,199 +2945,158 @@
   </section>
 
   <!-- ============================================
-       SLIDE 5 — 7 Year Productivity Timeline
+       SLIDE 5 — Accelerator Perspective
        ============================================ -->
   <section class="slide" id="slide-5" role="tabpanel">
     <div class="slide-head">
-      <div class="pre-title">05 — Implementation</div>
-      <h2 class="slide-title">Model Implementation — Realistic</h2>
-      <p class="slide-subtitle">A seven-year productivity trajectory across four streams. Standard levers ramp in Year 1, AI Build / Execute kicks in Year 2, and Self Heal begins layering into AI &amp; Data Engineering from Year 3 — while DNA and Modernisation converge into a single merged stream.</p>
+      <div class="pre-title">05 — Accelerators</div>
+      <h2 class="slide-title">Productivity Accelerators — Perspective</h2>
+      <p class="slide-subtitle">What each accelerator includes, the tools and types it covers, the benefit range it can deliver, and the assumptions behind the productivity percentages.</p>
     </div>
 
-    <div class="timeline-canvas">
+    <div class="accel-canvas">
+      <div class="accel-cols">
 
-      <!-- Legend -->
-      <div class="tl-legend">
-        <span class="tl-legend-title">Productivity Levers</span>
-        <span class="tl-lever l-op"><span class="tl-lever-dot"></span>OP · Operational</span>
-        <span class="tl-lever l-ap"><span class="tl-lever-dot"></span>AP · Agentic</span>
-        <span class="tl-lever l-ab"><span class="tl-lever-dot"></span>AB · AI Build / Execute</span>
-        <span class="tl-lever l-sh"><span class="tl-lever-dot"></span>SH · Self Heal</span>
-      </div>
-
-      <!-- Timeline grid -->
-      <div class="tl-grid">
-
-        <!-- Row 1: Year headers -->
-        <div class="tl-corner"></div>
-        <div class="tl-year"><span class="tl-year-num">Year 1</span><span class="tl-year-sub">Ramp</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 2</span><span class="tl-year-sub">Scale</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 3</span><span class="tl-year-sub">Converge</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 4</span><span class="tl-year-sub">Accelerate</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 5</span><span class="tl-year-sub">Expand</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 6</span><span class="tl-year-sub">Mature</span></div>
-        <div class="tl-year"><span class="tl-year-num">Year 7</span><span class="tl-year-sub">Autonomous</span></div>
-
-        <!-- Row 2: AI Engineering -->
-        <div class="tl-lane-label ln-aie">
-          <span class="ll-code">Stream A</span>
-          <span class="ll-name">AI Engineering</span>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
-          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">23</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">30</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:36%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">42</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:48%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">52</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:58%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">62</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:70%"></div></div>
-        </div>
-        <div class="tl-cell c-aie">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">70</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:82%"></div></div>
+        <!-- OP — Operational Productivity -->
+        <div class="accel-col ac-op">
+          <div class="accel-col-head">
+            <span class="accel-col-code">Lever · OP</span>
+            <span class="accel-col-name">Operational Productivity</span>
+          </div>
+          <div class="accel-col-body">
+            <div class="accel-section">
+              <div class="accel-section-head">Tools &amp; Types</div>
+              <ul class="accel-tool-list">
+                <li>Process automation &amp; workflow orchestration</li>
+                <li>Ticket routing &amp; SLA management</li>
+                <li>Monitoring dashboards &amp; alerting</li>
+                <li>Runbook automation</li>
+                <li>Capacity &amp; resource optimisation</li>
+              </ul>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Benefit Range</div>
+              <div class="accel-range-row">
+                <div class="accel-range-item"><span class="accel-range-label">Y1–4</span><span class="accel-range-val">+2<span class="pct-sign">%</span></span></div>
+                <div class="accel-range-item"><span class="accel-range-label">Y5–7</span><span class="accel-range-val">0<span class="pct-sign">%</span></span></div>
+              </div>
+              <div class="accel-benefit-bar">
+                <div class="accel-bar-track"><div class="accel-bar-fill" style="width:20%"></div></div>
+                <span class="accel-bar-pct">6–8<span class="pct-sign">%</span></span>
+              </div>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Assumptions</div>
+              <div class="accel-section-body">Standard process improvements and automation of routine tasks. No structural change to operating model. Benefits plateau after Year 4 as automation ceiling is reached.</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Row 3: Data Engineering (all 7 years separate) -->
-        <div class="tl-lane-label ln-de">
-          <span class="ll-code">Stream B</span>
-          <span class="ll-name">Data Engineering</span>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
-          <div class="tl-percent"><span class="pct-num">5</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:7%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:30%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">44</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:50%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">54</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:60%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">63</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:72%"></div></div>
-        </div>
-        <div class="tl-cell c-de">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span><span class="tl-pill p-sh">SH</span></div>
-          <div class="tl-percent"><span class="pct-num">72</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:84%"></div></div>
+        <!-- AP — Agentic Productivity -->
+        <div class="accel-col ac-ap">
+          <div class="accel-col-head">
+            <span class="accel-col-code">Lever · AP</span>
+            <span class="accel-col-name">Agentic Productivity</span>
+          </div>
+          <div class="accel-col-body">
+            <div class="accel-section">
+              <div class="accel-section-head">Tools &amp; Types</div>
+              <ul class="accel-tool-list">
+                <li>AI copilots &amp; code assistants</li>
+                <li>Test generation agents</li>
+                <li>Knowledge query &amp; RCA bots</li>
+                <li>Quick-fix &amp; remediation agents</li>
+                <li>SDLC accelerator tooling</li>
+              </ul>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Benefit Range</div>
+              <div class="accel-range-row">
+                <div class="accel-range-item"><span class="accel-range-label">Y1–4</span><span class="accel-range-val">+3<span class="pct-sign">%</span></span></div>
+                <div class="accel-range-item"><span class="accel-range-label">Y5–7</span><span class="accel-range-val">0<span class="pct-sign">%</span></span></div>
+              </div>
+              <div class="accel-benefit-bar">
+                <div class="accel-bar-track"><div class="accel-bar-fill" style="width:30%"></div></div>
+                <span class="accel-bar-pct">9–12<span class="pct-sign">%</span></span>
+              </div>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Assumptions</div>
+              <div class="accel-section-body">Agents augment human work within the existing SDLC. Productivity comes from faster task completion, not structural change. Benefits plateau at Year 4 as agent coverage saturates.</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Row 4: DNA (Y1, Y2 separate, Y3-Y7 merged with MOD below) -->
-        <div class="tl-lane-label ln-dna">
-          <span class="ll-code">Stream C</span>
-          <span class="ll-name">DNA · Data &amp; Analytics</span>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
-          <div class="tl-percent"><span class="pct-num">4</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:6%"></div></div>
-        </div>
-        <div class="tl-cell c-dna">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">22</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:28%"></div></div>
-        </div>
-
-        <!-- Merged DNA + Mod cells Y3-Y7 (span rows 4 + 5) -->
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">25</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:30%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">32</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:38%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">38</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:44%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">44</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:50%"></div></div>
-        </div>
-        <div class="tl-cell c-merged">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">50</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:58%"></div></div>
+        <!-- AB — AI Build / Execute -->
+        <div class="accel-col ac-ab">
+          <div class="accel-col-head">
+            <span class="accel-col-code">Lever · AB</span>
+            <span class="accel-col-name">AI Build / Execute</span>
+          </div>
+          <div class="accel-col-body">
+            <div class="accel-section">
+              <div class="accel-section-head">Tools &amp; Types</div>
+              <ul class="accel-tool-list">
+                <li>PDLC build engines &amp; neural pipelines</li>
+                <li>Autonomous code generation</li>
+                <li>AI-led testing &amp; validation</li>
+                <li>Deployment automation</li>
+                <li>Continuous refactor engines</li>
+              </ul>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Benefit Range</div>
+              <div class="accel-range-row">
+                <div class="accel-range-item"><span class="accel-range-label">Y2–4</span><span class="accel-range-val">+5<span class="pct-sign">%</span></span></div>
+                <div class="accel-range-item"><span class="accel-range-label">Y5–7</span><span class="accel-range-val">+1<span class="pct-sign">%</span></span></div>
+              </div>
+              <div class="accel-benefit-bar">
+                <div class="accel-bar-track"><div class="accel-bar-fill" style="width:50%"></div></div>
+                <span class="accel-bar-pct">15–18<span class="pct-sign">%</span></span>
+              </div>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Assumptions</div>
+              <div class="accel-section-body">AI models take over build and execution tasks with shift-left controls in place. Humans validate output. Available from Year 2 once foundational levers are established. Diminishing increments in Y5-7 as codebase stabilises.</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Row 5: Modernisation (only Y1, Y2 separate) -->
-        <div class="tl-lane-label ln-mod">
-          <span class="ll-code">Stream D</span>
-          <span class="ll-name">Modernisation</span>
-        </div>
-        <div class="tl-cell c-mod">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span></div>
-          <div class="tl-percent"><span class="pct-num">3</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:5%"></div></div>
-        </div>
-        <div class="tl-cell c-mod">
-          <div class="tl-levers"><span class="tl-pill p-op">OP</span><span class="tl-pill p-ap">AP</span><span class="tl-pill p-ab">AB</span></div>
-          <div class="tl-percent"><span class="pct-num">21</span><span class="pct-sign">%</span></div>
-          <div class="tl-progress"><div class="tl-progress-bar" style="width:26%"></div></div>
+        <!-- SH — Self Heal -->
+        <div class="accel-col ac-sh">
+          <div class="accel-col-head">
+            <span class="accel-col-code">Lever · SH</span>
+            <span class="accel-col-name">Self Heal</span>
+          </div>
+          <div class="accel-col-body">
+            <div class="accel-section">
+              <div class="accel-section-head">Tools &amp; Types</div>
+              <ul class="accel-tool-list">
+                <li>Anomaly detection systems</li>
+                <li>Self-healing runtime agents</li>
+                <li>Auto-remediation workflows</li>
+                <li>Predictive incident prevention</li>
+                <li>Agent operating system capabilities</li>
+              </ul>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Benefit Range</div>
+              <div class="accel-range-row">
+                <div class="accel-range-item"><span class="accel-range-label">Y3–4</span><span class="accel-range-val">+7<span class="pct-sign">%</span></span></div>
+                <div class="accel-range-item"><span class="accel-range-label">Y5–7</span><span class="accel-range-val">+2<span class="pct-sign">%</span></span></div>
+              </div>
+              <div class="accel-benefit-bar">
+                <div class="accel-bar-track"><div class="accel-bar-fill" style="width:55%"></div></div>
+                <span class="accel-bar-pct">14–20<span class="pct-sign">%</span></span>
+              </div>
+            </div>
+            <div class="accel-section">
+              <div class="accel-section-head">Assumptions</div>
+              <div class="accel-section-body">Requires mature AI operating system and sufficient historical data for pattern recognition. Available from Year 3 once AI Build is established. Governance controls and observability must be in place before activation.</div>
+            </div>
+          </div>
         </div>
 
-      </div>
-
-      <!-- Insights / footnotes -->
-      <div class="tl-footer">
-        <div class="tl-insight">
-          <span class="ti-tag">Year 1 · Ramp</span>
-          <span class="ti-title">3–5% Standard Lever Baseline</span>
-          <span class="ti-desc">All four streams activate Operational &amp; Agentic Productivity levers to establish a measurable baseline.</span>
-        </div>
-        <div class="tl-insight ti-merge">
-          <span class="ti-tag">Year 3 · Converge</span>
-          <span class="ti-title">DNA + Modernisation Merge</span>
-          <span class="ti-desc">Data &amp; Analytics and Modernisation consolidate into one stream from Year 3, sharing benefit levers and delivery capacity.</span>
-        </div>
-        <div class="tl-insight ti-heal">
-          <span class="ti-tag">Year 3 → Year 7</span>
-          <span class="ti-title">Self Heal Layers In</span>
-          <span class="ti-desc">AI Engineering and Data Engineering progressively add Self Heal from Year 3, compounding gains toward ~70% by Year 7.</span>
-        </div>
       </div>
     </div>
   </section>
@@ -3339,7 +3462,7 @@
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-5"
           data-slide="5" onclick="switchSlide(5)">
     <span class="tab-num">05</span>
-    Model Implementation — Realistic
+    Productivity Accelerators
   </button>
   <button class="tab" role="tab" aria-selected="false" aria-controls="slide-6"
           data-slide="6" onclick="switchSlide(6)">

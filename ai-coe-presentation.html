@@ -3415,13 +3415,17 @@
       var hasOp = cell.querySelector('.l-op.active') || cell.querySelector('.l-op.locked');
       var hasAp = cell.querySelector('.l-ap.active');
       var hasAb = cell.querySelector('.l-ab.active');
+      var hasSh = cell.querySelector('.l-sh.active');
       // OP: +2% in Y2-4 only
       if (y >= 2 && y <= 4 && hasOp) increment += 2;
       // AP: +5% extra on top of OP in Y2-4 (total OP+AP = 7)
       if (y >= 2 && y <= 4 && hasAp) increment += 5;
-      // AB: +10% in Y2-4, +5% in Y5-7
-      if (hasAb && y >= 2 && y <= 4) increment += 10;
-      if (hasAb && y >= 5) increment += 5;
+      // AB: +6% in Y2-4, +4% in Y5-7
+      if (hasAb && y >= 2 && y <= 4) increment += 6;
+      if (hasAb && y >= 5) increment += 4;
+      // SH: +8% in Y2-4, +10% in Y5-7
+      if (hasSh && y >= 2 && y <= 4) increment += 8;
+      if (hasSh && y >= 5) increment += 10;
       prev = prev + increment;
       pct.innerHTML = prev + '<span class="pct-sign">%</span>';
     }

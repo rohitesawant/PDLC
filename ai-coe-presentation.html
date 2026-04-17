@@ -3374,6 +3374,7 @@
   });
 
   // Enforce: AP/AB/SH only selectable if same lever is active in prior year
+  // Exception: AB is freely selectable starting from Year 2 (not chained to Year 1)
   function enforceChaining(rowId) {
     ['l-ap', 'l-ab', 'l-sh'].forEach(function(cls) {
       for (var y = 2; y <= 7; y++) {
@@ -3383,6 +3384,11 @@
         var btn = cell.querySelector('.' + cls);
         var prevBtn = prevCell.querySelector('.' + cls);
         if (!btn) continue;
+        // AB is freely available from Year 2 (skip chaining for AB at Y2)
+        if (cls === 'l-ab' && y === 2) {
+          btn.classList.remove('disabled');
+          continue;
+        }
         var prevActive = prevBtn && (prevBtn.classList.contains('active') || prevBtn.classList.contains('locked'));
         if (!prevActive) {
           btn.classList.add('disabled');

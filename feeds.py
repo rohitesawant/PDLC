@@ -1,0 +1,16 @@
+FEEDS = [
+    "https://openai.com/blog/rss.xml",
+    "https://www.anthropic.com/news/rss.xml",
+    "https://deepmind.google/blog/rss.xml",
+    "https://huggingface.co/blog/feed.xml",
+    "https://bair.berkeley.edu/blog/feed.xml",
+    "https://blog.research.google/feeds/posts/default",
+    "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "https://venturebeat.com/category/ai/feed/",
+    "https://www.technologyreview.com/feed/",
+    "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+    "https://arxiv.org/rss/cs.AI",
+    "https://arxiv.org/rss/cs.LG",
+    "https://arxiv.org/rss/cs.CL",
+]

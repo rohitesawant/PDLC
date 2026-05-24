@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full;
+  }
+  body {
+    @apply bg-white text-ink-800 font-body antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  /* Primary CTA — black */
+  .btn-primary {
+    @apply btn bg-federation-800 text-white hover:bg-federation-900 focus:ring-federation-600;
+  }
+  /* Secondary — bordered, on white */
+  .btn-secondary {
+    @apply btn bg-white text-ink-800 border border-ink-200 hover:bg-ink-50 focus:ring-ink-400;
+  }
+  /* Tertiary / link-style — azure */
+  .btn-ghost {
+    @apply btn bg-transparent text-azure-700 hover:bg-azure-50 focus:ring-azure-400;
+  }
+  /* Accent / urgent — orange */
+  .btn-accent {
+    @apply btn bg-saffron-500 text-white hover:bg-saffron-600 focus:ring-saffron-400 shadow-md shadow-saffron-500/20;
+  }
+
+  .input {
+    @apply block w-full rounded-lg border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-400 shadow-sm focus:border-ink-500 focus:outline-none focus:ring-2 focus:ring-ink-200;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink-800 mb-1.5;
+  }
+  .help {
+    @apply mt-1 text-xs text-ink-500;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-ink-200/70;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-azure-50 text-azure-700 px-3 py-1 text-xs font-medium;
+  }
+  .chip-orange {
+    @apply inline-flex items-center gap-1 rounded-full bg-saffron-100 text-saffron-800 px-3 py-1 text-xs font-medium;
+  }
+
+  /* VENT — keeps orange identity */
+  .vent-gradient {
+    background:
+      radial-gradient(1200px 600px at 0% 0%, rgba(251, 146, 60, 0.45) 0%, transparent 55%),
+      radial-gradient(900px 600px at 100% 0%, rgba(56, 189, 248, 0.25) 0%, transparent 55%),
+      linear-gradient(180deg, #0a0a0a 0%, #171717 100%);
+  }
+  .vent-wordmark {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    background: linear-gradient(180deg, #ffffff 0%, #fed7aa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .vent-btn-primary {
+    @apply btn bg-saffron-500 text-white hover:bg-saffron-600 focus:ring-saffron-400 shadow-lg shadow-saffron-500/20;
+  }
+  .vent-btn-ghost {
+    @apply btn bg-white/10 backdrop-blur text-white hover:bg-white/20 border border-white/15;
+  }
+  .vent-tab {
+    @apply flex-1 px-4 py-4 rounded-xl text-left transition border;
+  }
+  .vent-tab-active {
+    @apply bg-white border-saffron-300 shadow-card;
+  }
+  .vent-tab-inactive {
+    @apply bg-ink-50 border-transparent hover:bg-white/70 hover:border-ink-200;
+  }
+
+  /* Fiery VENT wordmark — gradient bottom (deep red) → top (white-hot yellow),
+     plus a layered glow so the letters look like they're on fire. */
+  .vent-fire-text {
+    background: linear-gradient(
+      to top,
+      #7f1d1d 0%,
+      #b91c1c 18%,
+      #ea580c 50%,
+      #f97316 70%,
+      #fbbf24 88%,
+      #fef3c7 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter:
+      drop-shadow(0 0 2px rgba(251, 146, 60, 0.9))
+      drop-shadow(0 0 6px rgba(220, 38, 38, 0.55))
+      drop-shadow(0 -1px 3px rgba(251, 191, 36, 0.45));
+    animation: ventFlicker 2.6s ease-in-out infinite;
+  }
+  @keyframes ventFlicker {
+    0%, 100% { filter:
+      drop-shadow(0 0 2px rgba(251, 146, 60, 0.9))
+      drop-shadow(0 0 6px rgba(220, 38, 38, 0.55))
+      drop-shadow(0 -1px 3px rgba(251, 191, 36, 0.45)); }
+    40% { filter:
+      drop-shadow(0 0 3px rgba(251, 191, 36, 1))
+      drop-shadow(0 0 9px rgba(234, 88, 12, 0.7))
+      drop-shadow(0 -1px 4px rgba(254, 215, 170, 0.5)); }
+    65% { filter:
+      drop-shadow(0 0 1.5px rgba(251, 146, 60, 0.75))
+      drop-shadow(0 0 5px rgba(220, 38, 38, 0.45))
+      drop-shadow(0 -1px 2px rgba(251, 191, 36, 0.35)); }
+  }
+}

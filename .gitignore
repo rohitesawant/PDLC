@@ -1,0 +1,39 @@
+# ===== Dependencies =====
+node_modules/
+*/node_modules/
+
+# ===== Build output =====
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# ===== Runtime data (do NOT commit the database or uploads) =====
+backend/data/portal.db
+backend/data/portal.db-shm
+backend/data/portal.db-wal
+backend/data/uploads/
+
+# ===== Editor / OS noise =====
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== Logs =====
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# ===== Env files =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===== Misc =====
+*.tsbuildinfo
+coverage/

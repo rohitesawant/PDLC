@@ -1,0 +1,45 @@
+<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b5563"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#ground)"/>
+  <!-- Wet road shine -->
+  <ellipse cx="320" cy="450" rx="320" ry="40" fill="rgba(125,211,252,0.18)"/>
+  <!-- Pipe (broken) -->
+  <rect x="80" y="240" width="200" height="60" rx="8" fill="#9ca3af"/>
+  <rect x="80" y="240" width="200" height="14" fill="#d1d5db"/>
+  <rect x="360" y="240" width="200" height="60" rx="8" fill="#9ca3af"/>
+  <rect x="360" y="240" width="200" height="14" fill="#d1d5db"/>
+  <!-- Jagged break edges -->
+  <polygon points="280,240 290,260 275,280 295,300 280,300 280,240" fill="#6b7280"/>
+  <polygon points="360,240 350,260 365,280 345,300 360,300 360,240" fill="#6b7280"/>
+  <!-- Water gushing out -->
+  <g fill="url(#water)">
+    <path d="M295,270 C310,200 330,140 360,90 C375,110 365,170 350,220 C340,250 320,265 295,275 Z" opacity="0.85"/>
+    <path d="M345,270 C330,200 310,140 280,90 C265,110 275,170 290,220 C300,250 320,265 345,275 Z" opacity="0.85"/>
+  </g>
+  <!-- Water splash droplets -->
+  <g fill="#7dd3fc">
+    <circle cx="240" cy="180" r="6"/>
+    <circle cx="220" cy="220" r="4"/>
+    <circle cx="400" cy="180" r="6"/>
+    <circle cx="420" cy="220" r="4"/>
+    <circle cx="310" cy="120" r="5"/>
+    <circle cx="330" cy="80" r="4"/>
+  </g>
+  <!-- Puddle on ground -->
+  <ellipse cx="320" cy="400" rx="180" ry="22" fill="#075985" opacity="0.85"/>
+  <ellipse cx="320" cy="395" rx="160" ry="14" fill="#0ea5e9" opacity="0.55"/>
+  <!-- Label -->
+  <g>
+    <rect x="20" y="20" width="320" height="44" rx="6" fill="rgba(0,0,0,0.75)"/>
+    <text x="40" y="50" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="900" fill="#fbbf24" letter-spacing="2">⚠ BURST WATER PIPE</text>
+  </g>
+</svg>

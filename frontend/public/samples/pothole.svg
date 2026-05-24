@@ -1,0 +1,36 @@
+<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#404040"/>
+      <stop offset="1" stop-color="#171717"/>
+    </linearGradient>
+    <radialGradient id="hole" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.65" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#262626"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <!-- Centre lane markings -->
+  <g stroke="#fbbf24" stroke-width="6" stroke-linecap="round">
+    <line x1="320" y1="20" x2="320" y2="110"/>
+    <line x1="320" y1="160" x2="320" y2="190"/>
+    <line x1="320" y1="320" x2="320" y2="370"/>
+    <line x1="320" y1="420" x2="320" y2="460"/>
+  </g>
+  <!-- Pothole -->
+  <ellipse cx="320" cy="250" rx="160" ry="80" fill="url(#hole)"/>
+  <ellipse cx="320" cy="245" rx="120" ry="58" fill="#000" opacity="0.9"/>
+  <!-- Cracks -->
+  <g stroke="#525252" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7">
+    <path d="M180,220 L120,180 L70,200"/>
+    <path d="M180,280 L120,310 L70,290"/>
+    <path d="M470,210 L540,170 L580,200"/>
+    <path d="M470,290 L540,330 L580,300"/>
+  </g>
+  <!-- Label -->
+  <g>
+    <rect x="20" y="420" width="260" height="44" rx="6" fill="rgba(0,0,0,0.75)"/>
+    <text x="40" y="450" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="900" fill="#fbbf24" letter-spacing="2">⚠ POTHOLE</text>
+  </g>
+</svg>

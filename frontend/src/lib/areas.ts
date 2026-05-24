@@ -1,0 +1,28 @@
+export const PCMC_AREAS = [
+  'Pimpri',
+  'Chinchwad',
+  'Akurdi',
+  'Nigdi',
+  'Bhosari',
+  'Wakad',
+  'Hinjawadi',
+  'Pimple Saudagar',
+  'Pimple Gurav',
+  'Pimple Nilakh',
+  'Thergaon',
+  'Sangvi',
+  'Dapodi',
+  'Kasarwadi',
+  'Moshi',
+  'Chikhali',
+  'Ravet',
+  'Kiwale',
+  'Punawale',
+  'Tathawade',
+  'Talawade',
+  'Dighi',
+  'Charholi',
+  'Other',
+] as const;
+
+export type Area = (typeof PCMC_AREAS)[number];
